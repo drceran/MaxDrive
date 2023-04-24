@@ -9,6 +9,12 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          {/* <Route path="/" element={<ManufacturerList />} /> */}
+          {/* <Route path="/" element={<ManufacturerForm />} /> */}
+          {/* <Route path="/" element={<VehicleList />} /> */}
+          {/* <Route path="/" element={<VehicleForm />} /> */}
+          {/* <Route path="/" element={<AutoList />} /> */}
+          {/* <Route path="/" element={<AutoForm />} /> */}
         </Routes>
       </div>
     </BrowserRouter>
