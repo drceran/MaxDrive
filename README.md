@@ -2,10 +2,11 @@
 
 Team:
 
-* Person 1 - Which microservice?
-* Person 2 - Which microservice?
+* Person 1 - Jennifer Ho - Services
+* Person 2 - Esra Ceran - Sales
 
 ## Design
+
 
 ## Service microservice
 
