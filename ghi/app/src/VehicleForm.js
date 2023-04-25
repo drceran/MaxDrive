@@ -56,7 +56,7 @@ export default function VehicleForm() {
         <div className="row">
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
-            <h1>Add a new vehicle!</h1>
+            <h1>Create a vehicle model</h1>
             <form onSubmit={handleSubmit} id="create-vehicle-form">
                 <div className="form-floating mb-3">
                     <input onChange={handleFormChange} placeholder="Model Name" required type="text" name="name" id="name" className="form-control" value={formData.name}/>
@@ -70,7 +70,7 @@ export default function VehicleForm() {
 
                 <div className="mb-3">
                     <select onChange={handleFormChange} required name="manufacturer_id" id="manufacturer_id" className="form-select" value={formData.manufacturer_id}>
-                        <option disabled value="">Choose a manufacturer</option>
+                        <option disabled value="">Choose a manufacturer...</option>
                         {manufacturers.map(manufacturer => {
                         return (
                             <option key={manufacturer.id} value={manufacturer.id}>{manufacturer.name}</option>

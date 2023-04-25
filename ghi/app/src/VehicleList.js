@@ -7,9 +7,9 @@ export default function VehicleList(props){
         <table className="table table-striped">
             <thead>
                 <tr>
-                    <th>Model</th>
-                    <th>Picture</th>
+                    <th>Name</th>
                     <th>Manufacturer</th>
+                    <th>Picture</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,8 +17,8 @@ export default function VehicleList(props){
                     return (
                         <tr key={ vehicle.href }>
                             <td>{ vehicle.name }</td>
-                            <td><img src= { vehicle.picture_url } alt = { vehicle.picture_url } height = "100"/> </td>
                             <td>{ vehicle.manufacturer.name }</td>
+                            <td><img src= { vehicle.picture_url } alt = { vehicle.picture_url } height = "200"/> </td>
                         </tr>
                     );
                 })}
