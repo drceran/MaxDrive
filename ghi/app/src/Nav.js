@@ -8,6 +8,7 @@ function Nav() {
         <NavLink className="nav-item" to="/manufacturers">Manufacturers</NavLink>
         <NavLink className="nav-item" to="/manufacturers/new">Create Manufacture</NavLink>
         <NavLink className="nav-item" to="/automobiles">Automobiles</NavLink>
+        <NavLink className="nav-item" to="/automobiles/new">Create An Automobile</NavLink>
         <NavLink className="nav-item me-3 active" to="/vehicles">Models</NavLink>
         <NavLink className="nav-item me-3 active" to="/vehicles/new">Create a model</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
