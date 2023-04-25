@@ -10,3 +10,13 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+const loadVehicles = async () =>{
+  const response = await fetch("http://localhost:8100/api/models/")
+  if (response.ok){
+    const data = await response.json();
+    root.render(<App vehicles={data.models} />);
+  }
+}
+
+loadVehicles();
