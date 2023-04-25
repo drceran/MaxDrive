@@ -17,6 +17,7 @@ class TechnicianEncoder(ModelEncoder):
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
     properties = [
+        "id",
         "date_time",
         "reason",
         "status",
@@ -69,8 +70,12 @@ def appointments_detail(request, id):
 
 @require_http_methods(["PUT"])
 def cancel_appointment(request, id):
-    pass
+    Appointment.objects.filter(id=id).update(status="cancel")
+    appointment = Appointment.objects.filter(id=id)
+    return JsonResponse(appointment, encoder=AppointmentEncoder, safe=False)
 
 @require_http_methods(["PUT"])
 def finished_appointment(request, id):
-    pass
+    Appointment.objects.filter(id=id).update(status="finish")
+    appointment = Appointment.objects.filter(id=id)
+    return JsonResponse(appointment, encoder=AppointmentEncoder, safe=False)
