@@ -1,9 +1,22 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
+from .models import Technician, Appointment
+from common.json import ModelEncoder
+
+class TechnicianListEncoder(ModelEncoder):
+    model = Technician
+    properties = [
+        "employee_id",
+        "first_name",
+        "last_name"
+    ]
 
 @require_http_methods(["GET", "POST"])
 def technicians_list(request):
-    pass
+    if request.method == "GET":
+        technicians = Technician.objects.all()
+        return JsonResponse({"technicians": technicians}, encoder=TechnicianListEncoder)
 
 @require_http_methods(["DELETE"])
 def technician_detail(request, id):
