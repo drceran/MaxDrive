@@ -1,13 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
 
 function Nav() {
   return (
-    <>
-      <Navbar bg="light" variant="light">
-        <Container>
-          <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-success ">
             <div className="container-fluid">
               <NavLink className="navbar-brand" to="/">CarCar</NavLink>
               <NavLink className="nav-item" to="/manufacturers">Manufacturers</NavLink>
@@ -20,9 +15,6 @@ function Nav() {
               </div>
             </div>
           </nav>
-        </Container>
-      </Navbar>
-    </>
   );
 }
 
