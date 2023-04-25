@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
 
+
+
 from .encoders import (
     AutomobileEncoder,
     ManufacturerEncoder,
@@ -30,7 +32,8 @@ def api_automobiles(request):
                 encoder=AutomobileEncoder,
                 safe=False,
             )
-        except:
+        except Exception as e:
+            print(f"CREATE AUTO ERROR: {e}")
             response = JsonResponse(
                 {"message": "Could not create the automobile"}
             )

@@ -5,6 +5,8 @@ import VehicleList from './VehicleList';
 import VehicleForm from './VehicleForm';
 import ManufacturerList from './ManufacturerList';
 import ManufacturerCreate from './ManufacturerCreate';
+import AutomobileList from './AutomobileList';
+
 
 function App(props) {
   return (
@@ -14,20 +16,21 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers">
-            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />}/>
-            </Route>
-            <Route path="/manufacturers/new" element={<ManufacturerCreate />} />
-
-          {/* <Route path="/" element={<ManufacturerForm />} /> */}
+            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+          </Route>
+          <Route>
+          <Route path="/manufacturers/new" element={<ManufacturerCreate />} />
+        </Route>
           <Route path="vehicles">
-            <Route index element={<VehicleList vehicles = {props.vehicles}/>} />
+            <Route index element={<VehicleList vehicles={props.vehicles} />} />
             <Route path="new" element={<VehicleForm />} />
           </Route>
-          {/* <Route path="/" element={<AutoList />} /> */}
-          {/* <Route path="/" element={<AutoForm />} /> */}
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <Route path="automobiles">
+          <Route index element={<AutomobileList />} />
+        </Route>
+      </Routes>
+    </div>
+    </BrowserRouter >
   );
 }
 
