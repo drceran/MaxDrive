@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from .models import Technician, Appointment
 from common.json import ModelEncoder
+import json
 
 class TechnicianListEncoder(ModelEncoder):
     model = Technician
@@ -17,6 +18,11 @@ def technicians_list(request):
     if request.method == "GET":
         technicians = Technician.objects.all()
         return JsonResponse({"technicians": technicians}, encoder=TechnicianListEncoder)
+    else: #IOW, POST
+        content = json.loads(request.body)
+        technician = Technician.objects.create(**content)
+        return JsonResponse(technician, encoder=TechnicianListEncoder, safe=False)
+
 
 @require_http_methods(["DELETE"])
 def technician_detail(request, id):
