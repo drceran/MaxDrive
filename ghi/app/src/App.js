@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import ManufacturerList from './ManufacturerList';
+import ManufacturerCreate from './ManufacturerCreate';
 
 
 function App(props) {
@@ -14,6 +15,8 @@ function App(props) {
           <Route path="manufacturers">
             <Route index element={<ManufacturerList manufacturers={props.manufacturers} />}/>
             </Route>
+            <Route path="/manufacturers/new" element={<ManufacturerCreate />} />
+
           {/* <Route path="/" element={<ManufacturerForm />} /> */}
           {/* <Route path="/" element={<VehicleList />} /> */}
           {/* <Route path="/" element={<VehicleForm />} /> */}
