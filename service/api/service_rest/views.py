@@ -63,7 +63,8 @@ def appointments_list(request):
 
 @require_http_methods(["DELETE"])
 def appointments_detail(request, id):
-    pass
+    count, _ = Appointment.objects.filter(id=id).delete()
+    return JsonResponse({"deleted": count>0})
 
 
 @require_http_methods(["PUT"])
