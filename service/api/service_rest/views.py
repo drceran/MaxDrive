@@ -26,7 +26,8 @@ def technicians_list(request):
 
 @require_http_methods(["DELETE"])
 def technician_detail(request, id):
-    pass
+    count, _ = Technician.objects.filter(id=id).delete()
+    return JsonResponse({"deleted": count > 0})
 
 @require_http_methods(["GET", "POST"])
 def appointments_list(request):
