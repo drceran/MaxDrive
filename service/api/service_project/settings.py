@@ -30,6 +30,7 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    'service_rest.apps.ServiceRestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +49,7 @@ MIDDLEWARE = [
 ]
 
 ALLOWED_HOSTS = [
-    "localhost",
+    "localhost"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -88,6 +89,7 @@ WSGI_APPLICATION = 'service_project.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {}
+
 DATABASES["default"] = dj_database_url.config()
 
 
