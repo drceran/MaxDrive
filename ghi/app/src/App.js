@@ -3,6 +3,7 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import ManufacturerList from './ManufacturerList';
 import ManufacturerCreate from './ManufacturerCreate';
+import AutomobileList from './AutomobileList';
 
 
 function App(props) {
@@ -13,15 +14,12 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers">
-            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />}/>
-            </Route>
-            <Route path="/manufacturers/new" element={<ManufacturerCreate />} />
-
-          {/* <Route path="/" element={<ManufacturerForm />} /> */}
-          {/* <Route path="/" element={<VehicleList />} /> */}
-          {/* <Route path="/" element={<VehicleForm />} /> */}
-          {/* <Route path="/" element={<AutoList />} /> */}
-          {/* <Route path="/" element={<AutoForm />} /> */}
+            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+          </Route>
+          <Route path="/manufacturers/new" element={<ManufacturerCreate />} />
+          <Route path="automobiles">
+            <Route index element={<AutomobileList />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>
