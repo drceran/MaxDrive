@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-function ManufacturerList({manufacturers}) {
+function ManufacturerList() {
     const [manufacturerdetails, setManufacturers] = useState([]);
 
     useEffect(() => {

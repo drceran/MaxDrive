@@ -5,14 +5,14 @@ function AutomobileCreate() {
         color: '',
         year: '',
         vin: '',
-        model: '',
+        model_id: '',
     });
 
     const [models, setModels] = useState([]);
 
     // get models list
     const fetchData = async () => {
-        const url = 'http://localhost:8080/api/models';
+        const url = 'http://localhost:8100/api/models';
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
@@ -22,15 +22,6 @@ function AutomobileCreate() {
     useEffect(() => {
         fetchData();
     }, []);
-
-    // http://localhost:8100/api/models/
-    // / url den model datasini - fetch et
-    // modelList state ona ata tum model verilerini
-
-    //  {this.handleChangeModels.models.map(model => { icine yaz
-
-    //  const data = await response.json();
-    //             this.setState({models: data.models});
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -49,12 +40,12 @@ function AutomobileCreate() {
                 color: '',
                 year: '',
                 vin: '',
-                model: '',
+                model_id: '',
             });
             event.target.reset();
         }
     }
-    const handleFormChange = (e) => {
+    const handleFormChange = (e) => { // e is an Event, contains e.target which is the React element that caused this event.
         const value = e.target.value;
         const inputName = e.target.name;
 
@@ -70,19 +61,19 @@ function AutomobileCreate() {
                     <h1>Add an automobile to inventory</h1>
                     <form onSubmit={handleSubmit} id="create-automobile-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleFormChange} placeholder='Color' required type='text' name='name' id='name' className='form-control' />
-                            <label htmlFor='name'>Color</label>
+                            <input onChange={handleFormChange} placeholder='Color' required type='text' name='color' id='color' className='form-control' />
+                            <label htmlFor='color'>Color</label>
                         </div>
                         <div className='form-floating mb-3' >
-                            <input onChange={handleFormChange} placeholder='Year' required type='number' name='name' id='name' className='form-control' />
+                            <input onChange={handleFormChange} placeholder='Year' required type='number' name='year' id='year' className='form-control' />
                             <label htmlFor='year'>Year</label>
                         </div>
                         <div className='form-floating mb-3' >
-                            <input onChange={handleFormChange} placeholder='Vin' required type='text' name='name' id='name' className='form-control' />
+                            <input onChange={handleFormChange} placeholder='Vin' required type='text' name='vin' id='vin' className='form-control' />
                             <label htmlFor='vin'>VIN</label>
                         </div>
-                        <div className='mb-3' >
-                            <select onChange={handleFormChange} required name='model' id='model' className='form-select' >
+                        <div className='form-floating mb-3' >
+                            <select onChange={handleFormChange} required name='model_id' id='model_id' className='form-select' >
                                 <option value=''>Choose a model</option>
                                 {models.map(model => {
                                     return (
@@ -90,6 +81,7 @@ function AutomobileCreate() {
                                     )
                                 })}
                             </select>
+                            <label htmlFor='model_id'>Model</label>
                         </div>
                         <button type="submit" className="btn btn-light">Create</button>
                     </form>

@@ -7,6 +7,7 @@ import ManufacturerList from './ManufacturerList';
 import ManufacturerCreate from './ManufacturerCreate';
 import AutomobileList from './AutomobileList';
 import AutomobileCreate from './AutomobileCreate';
+import SalespeopleList from './SalespeopleList';
 
 
 function App(props) {
@@ -19,7 +20,7 @@ function App(props) {
           <Route path="/" element={<MainPage />} />
 
           <Route path="manufacturers">
-            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+            <Route index element={<ManufacturerList />} />
             <Route path="new" element={<ManufacturerCreate />} />
           </Route>
 
@@ -31,6 +32,10 @@ function App(props) {
         <Route path="automobiles">
           <Route index element={<AutomobileList />} />
           <Route path="new" element={<AutomobileCreate />} />
+        </Route>
+
+        <Route path="salespeople">
+          <Route index element={<SalespeopleList />} />
         </Route>
 
       </Routes>
