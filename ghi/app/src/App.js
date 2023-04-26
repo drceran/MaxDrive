@@ -12,7 +12,7 @@ import TechnicianList from './TechnicianList';
 import AppointmentForm from './AppointmentForm';
 import AppointmentList from './AppointmentList';
 import Servicehistory from './Servicehistory';
-
+import SalespeopleList from './SalespeopleList';
 
 function App(props) {
   return (
@@ -24,7 +24,7 @@ function App(props) {
           <Route path="/" element={<MainPage />} />
 
           <Route path="manufacturers">
-            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+            <Route index element={<ManufacturerList />} />
             <Route path="new" element={<ManufacturerCreate />} />
           </Route>
 
@@ -45,6 +45,9 @@ function App(props) {
             <Route path="new" element={<AutomobileCreate />} />
           </Route>
           <Route path="servicehistory" element={<Servicehistory/>}/>
+          <Route path="salespeople">
+            <Route index element={<SalespeopleList />} />
+          </Route>
       </Routes>
     </div>
     </BrowserRouter >
