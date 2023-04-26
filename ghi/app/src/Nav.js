@@ -8,6 +8,7 @@ function Nav() {
         <NavLink className="nav-item" to="/manufacturers">Manufacturers</NavLink>
         <NavLink className="nav-item" to="/manufacturers/new">Create Manufacture</NavLink>
         <NavLink className="nav-item" to="/automobiles">Automobiles</NavLink>
+        <NavLink className="nav-item" to="/automobiles/new">Create An Automobile</NavLink>
         <NavLink className="nav-item me-3 active" to="/vehicles">Models</NavLink>
         <NavLink className="nav-item me-3 active" to="/vehicles/new">Create a Model</NavLink>
         <NavLink className="nav-item me-3 active" to="/technicians/">Technicians</NavLink>
