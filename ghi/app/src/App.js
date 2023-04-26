@@ -6,8 +6,10 @@ import VehicleForm from './VehicleForm';
 import ManufacturerList from './ManufacturerList';
 import ManufacturerCreate from './ManufacturerCreate';
 import AutomobileList from './AutomobileList';
+import AutomobileCreate from './AutomobileCreate';
 import TechnicianForm from './TechnicianForm'
 import TechnicianList from './TechnicianList';
+
 
 
 function App(props) {
@@ -16,13 +18,14 @@ function App(props) {
       <Nav />
       <div className="container">
         <Routes>
+
           <Route path="/" element={<MainPage />} />
+
           <Route path="manufacturers">
             <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+            <Route path="new" element={<ManufacturerCreate />} />
           </Route>
-          <Route>
-          <Route path="/manufacturers/new" element={<ManufacturerCreate />} />
-        </Route>
+
           <Route path="vehicles">
             <Route index element={<VehicleList vehicles={props.vehicles} />} />
             <Route path="new" element={<VehicleForm />} />
@@ -31,9 +34,12 @@ function App(props) {
             <Route index element={<TechnicianList />} />
             <Route path="new" element={<TechnicianForm />} />
           </Route>
+
         <Route path="automobiles">
           <Route index element={<AutomobileList />} />
+          <Route path="new" element={<AutomobileCreate />} />
         </Route>
+
       </Routes>
     </div>
     </BrowserRouter >
