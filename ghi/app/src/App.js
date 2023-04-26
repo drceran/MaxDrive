@@ -11,7 +11,7 @@ import TechnicianForm from './TechnicianForm'
 import TechnicianList from './TechnicianList';
 import AppointmentForm from './AppointmentForm';
 import AppointmentList from './AppointmentList';
-
+import Servicehistory from './Servicehistory';
 
 
 function App(props) {
@@ -44,7 +44,7 @@ function App(props) {
             <Route index element={<AutomobileList />} />
             <Route path="new" element={<AutomobileCreate />} />
           </Route>
-
+          <Route path="servicehistory" element={<Servicehistory/>}/>
       </Routes>
     </div>
     </BrowserRouter >

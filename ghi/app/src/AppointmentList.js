@@ -34,7 +34,6 @@ export default function AppointmentList(){
         if (response.ok){
             loadAppointments()
         }
-        console.log(appointments)
     }
 
     return(
