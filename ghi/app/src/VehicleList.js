@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-//maybe add spinner instead of ?
 
+//maybe add spinner instead of ?
 export default function VehicleList(props){
 
     return (

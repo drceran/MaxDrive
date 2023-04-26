@@ -7,9 +7,11 @@ import ManufacturerList from './ManufacturerList';
 import ManufacturerCreate from './ManufacturerCreate';
 import AutomobileList from './AutomobileList';
 import AutomobileCreate from './AutomobileCreate';
+import TechnicianForm from './TechnicianForm'
+import TechnicianList from './TechnicianList';
+import AppointmentForm from './AppointmentForm';
+import AppointmentList from './AppointmentList';
 import SalespeopleList from './SalespeopleList';
-
-
 function App(props) {
   return (
     <BrowserRouter>
@@ -28,11 +30,18 @@ function App(props) {
             <Route index element={<VehicleList vehicles={props.vehicles} />} />
             <Route path="new" element={<VehicleForm />} />
           </Route>
-
-        <Route path="automobiles">
-          <Route index element={<AutomobileList />} />
-          <Route path="new" element={<AutomobileCreate />} />
-        </Route>
+          <Route path="technicians">
+            <Route index element={<TechnicianList />} />
+            <Route path="new" element={<TechnicianForm />} />
+          </Route>
+          <Route path="appointments">
+            <Route index element={<AppointmentList />} />
+            <Route path="new" element={<AppointmentForm />} />
+          </Route>
+          <Route path="automobiles">
+            <Route index element={<AutomobileList />} />
+            <Route path="new" element={<AutomobileCreate />} />
+          </Route>
 
         <Route path="salespeople">
           <Route index element={<SalespeopleList />} />
