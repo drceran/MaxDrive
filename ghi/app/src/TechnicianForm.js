@@ -33,7 +33,6 @@ export default function TechnicianForm(){
                 employee_id: ''
             })
         }
-
     }
 
     return(
