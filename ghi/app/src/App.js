@@ -11,9 +11,7 @@ import TechnicianForm from './TechnicianForm'
 import TechnicianList from './TechnicianList';
 import AppointmentForm from './AppointmentForm';
 import AppointmentList from './AppointmentList';
-
-
-
+import SalespeopleList from './SalespeopleList';
 function App(props) {
   return (
     <BrowserRouter>
@@ -24,7 +22,7 @@ function App(props) {
           <Route path="/" element={<MainPage />} />
 
           <Route path="manufacturers">
-            <Route index element={<ManufacturerList manufacturers={props.manufacturers} />} />
+            <Route index element={<ManufacturerList />} />
             <Route path="new" element={<ManufacturerCreate />} />
           </Route>
 
@@ -44,6 +42,10 @@ function App(props) {
             <Route index element={<AutomobileList />} />
             <Route path="new" element={<AutomobileCreate />} />
           </Route>
+
+        <Route path="salespeople">
+          <Route index element={<SalespeopleList />} />
+        </Route>
 
       </Routes>
     </div>
