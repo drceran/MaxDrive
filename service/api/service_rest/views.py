@@ -70,12 +70,12 @@ def appointments_detail(request, id):
 
 @require_http_methods(["PUT"])
 def cancel_appointment(request, id):
-    Appointment.objects.filter(id=id).update(status="cancel")
+    Appointment.objects.filter(id=id).update(status="cancelled")
     appointment = Appointment.objects.filter(id=id)
     return JsonResponse(appointment, encoder=AppointmentEncoder, safe=False)
 
 @require_http_methods(["PUT"])
 def finished_appointment(request, id):
-    Appointment.objects.filter(id=id).update(status="finish")
+    Appointment.objects.filter(id=id).update(status="finished")
     appointment = Appointment.objects.filter(id=id)
     return JsonResponse(appointment, encoder=AppointmentEncoder, safe=False)
