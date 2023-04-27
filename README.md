@@ -81,7 +81,7 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
+
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
 
@@ -101,7 +101,7 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
+
 <details>
 <summary><strong>Example Delete Output</strong></summary>
 
@@ -113,7 +113,6 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
 
 #### Vehicle Models
 | HTTP Method | URL | Description |
@@ -160,7 +159,7 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
+
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
 
@@ -188,7 +187,6 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
 <details>
 <summary><strong>Example Delete Output</strong></summary>
 
@@ -206,7 +204,6 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
 
 #### Automobiles
 | HTTP Method | URL | Description |
@@ -269,7 +266,7 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
+
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
 
@@ -306,7 +303,7 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
+
 <details>
 <summary><strong>Example Delete Output</strong></summary>
 
@@ -333,7 +330,6 @@ $ ...
 }
 ```
 </details>
-<p>&nbsp;</p>
 
 ## Service microservice
 
