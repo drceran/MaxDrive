@@ -39,12 +39,12 @@ function App(props) {
           <Route path="appointments">
             <Route index element={<AppointmentList />} />
             <Route path="new" element={<AppointmentForm />} />
+            <Route path="history" element={<Servicehistory />} />
           </Route>
           <Route path="automobiles">
             <Route index element={<AutomobileList />} />
             <Route path="new" element={<AutomobileCreate />} />
           </Route>
-          <Route path="servicehistory" element={<Servicehistory/>}/>
           <Route path="salespeople">
             <Route index element={<SalespeopleList />} />
           </Route>

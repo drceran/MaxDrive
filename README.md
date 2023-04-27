@@ -26,10 +26,58 @@ Include a couple of sentences describing how they work together
 ### URLs and Ports Summary
 | Service | URL | Port |
 |---|---|---|
-| Frontend - React | http://localhost:3000 | 3000 |
-| Backend - Inventory API | http://localhost:8100 | 8000 |
-| Backend - Service API | http://localhost:8080 | 8000 |
-| Backend - Sales API | http://localhost:8090 | 8000 |
+| Frontend - React | http://localhost:3000/ | 3000 |
+| Backend - Inventory API | http://localhost:8100/ | 8000 |
+| Backend - Service API | http://localhost:8080/ | 8000 |
+| Backend - Sales API | http://localhost:8090/ | 8000 |
+
+### General URL Navigation
+##### Manufacturers:
+| Feature | URL |
+|---|---|
+|Manufacturers list|http://localhost:3000/manufacturers/|
+|Add a manufacturer|http://localhost:3000/manufacturers/new/|
+##### Vehicles:
+| Feature | URL |
+|---|---|
+|Vehicle models list|http://localhost:3000/vehicles/|
+|Add a vehicle model|http://localhost:3000/vehicles/new/|
+##### Automobiles:
+| Feature | URL |
+|---|---|
+|Automobiles list|http://localhost:3000/automobiles/|
+|Add an automobile|http://localhost:3000/automobiles/new/|
+
+##### Technicians:
+| Feature | URL |
+|---|---|
+|Technicians list|http://localhost:3000/technicians/|
+|Add a technician |http://localhost:3000/technicians/new/|
+##### Appointments:
+| Feature | URL |
+|---|---|
+|Appointments list|http://localhost:3000/appointments/|
+|Add an appointment|http://localhost:3000/appointments/new/|
+|Service appointment history|http://localhost:3000/appointments/history/|
+
+##### Salespersons:
+| Feature | URL |
+|---|---|
+|Salespeople list|http://localhost:3000/salespeople/|
+|Add a salespeople |http://localhost:3000/salespeople/new/|
+
+##### Customers:
+| Feature | URL |
+|---|---|
+|Customers list|http://localhost:3000/customers/|
+|Add a customer |http://localhost:3000/customers/new/|
+
+##### Sales:
+| Feature | URL |
+|---|---|
+|Technicians list|http://localhost:3000/sales/|
+|Add a sale |http://localhost:3000/sales/new/|
+
 
 ## Installation
 ### Pre-requisites
@@ -52,6 +100,11 @@ docker volume create beta-data
 docker compose build
 docker compose up
 ```
+
+Check Docker to confirm that all the containers are up and running.
+
+Once you've confirmed the Docker containers are running, access the application on your browser at http://localhost:3000/!
+
 
 ## Inventory Microservice
 
