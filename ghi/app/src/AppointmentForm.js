@@ -11,8 +11,6 @@ export default function AppointmentForm(){
         reason:'',
     })
 
-
-    //merge this into fetch into parent?
     const [technicians, setTechnicians] = useState([])
 
     const loadTechnicians = async() =>{
@@ -35,7 +33,7 @@ export default function AppointmentForm(){
         e.preventDefault();
 
         const {date,time, ...formDataClean} = formData;
-        const dateTime = `${date} ${time}`;
+        const dateTime = `${date}${time}`;
 
         const url = "http://localhost:8080/api/appointments/"
         const fetchOptions = {
@@ -46,7 +44,7 @@ export default function AppointmentForm(){
             body: JSON.stringify({ ...formDataClean, date_time: dateTime }),
         }
         const response = await fetch(url, fetchOptions);
-        console.log(response)
+
         if (response.ok){
             setFormData({
                 date:'',
