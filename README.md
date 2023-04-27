@@ -3,6 +3,7 @@
 
 
 CarCar provides car dealerships with the ability to easily manage their inventory, sales, customers, and services!
+Note to self: Move all endpoint URLs to design section?
 
 ## Team:
 
@@ -10,14 +11,28 @@ CarCar provides car dealerships with the ability to easily manage their inventor
 * Person 2 - Esra Ceran - Sales
 
 ## Design
+### Domain-Driven Architecture
 Add in the DDD graphic
 Include a couple of sentences describing how they work together
+
+
+### URLs and Ports Summary
+| Service | URL | Port |
+|---|---|---|
+| Frontend | http://localhost:3000 | 3000 |
+| Backend - Inventory API | http://localhost:8100 | 8000 |
+| Backend - Service API | http://localhost:8080 | 8000 |
+| Backend - Sales API | http://localhost:8090 | 8000 |
+| Database | postgres://localhost:15432 | 5432 |
+
+## Installation Guidance
 ### Pre-requisites
 Ensure you have the latest version of docker on your Docker host machine.
-### Installation Guidance
+
+### Quick Start
 Fork the project and clone locally to your Docker host.
 
-To run this project, :
+To run this project:
 
 ```
 $ ...
