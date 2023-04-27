@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 function CustomerCreate(props) {
     const [formData, setFormData] = useState({
-        name: ''
+
     });
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -18,7 +18,7 @@ function CustomerCreate(props) {
 
         if (response.ok) {
             setFormData({
-                name: ''
+
             });
             event.target.reset();
         }
@@ -39,20 +39,20 @@ function CustomerCreate(props) {
                     <h1>Add a customer</h1>
                     <form onSubmit={handleSubmit} id="create-customer-form">
                         <div className="form-floating mb-3">
-                            <input onChange={handleFormChange} placeholder='First Name' required type='text' name='first name' id='first name' className='form-control' />
-                            <label htmlFor='first name'>First name</label>
+                            <input onChange={handleFormChange} placeholder='First Name' required type='text' name='first_name' id='first_name' className='form-control' />
+                            <label htmlFor='first_name'>First name</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleFormChange} placeholder='Last Name' required type='text' name='last name' id='last name' className='form-control' />
-                            <label htmlFor='last name'>Last name</label>
+                            <input onChange={handleFormChange} placeholder='Last Name' required type='text' name='last_name' id='last_name' className='form-control' />
+                            <label htmlFor='last_name'>Last name</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input onChange={handleFormChange} placeholder='Address' required type='text' name='address' id='address' className='form-control' />
                             <label htmlFor='address'>Address</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleFormChange} placeholder='Phone Number' required type='text' name='phone number' id='phone number' className='form-control' />
-                            <label htmlFor='phone number'>Phone number</label>
+                            <input onChange={handleFormChange} placeholder='Phone Number' required type='text' name='phone_number' id='phone_number' className='form-control' />
+                            <label htmlFor='phone_number'>Phone number</label>
                         </div>
                         <button type="submit" className="btn btn-light">Create</button>
                     </form>

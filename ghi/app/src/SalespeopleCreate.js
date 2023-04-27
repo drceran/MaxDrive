@@ -43,15 +43,15 @@ function SalespeopleCreate(props) {
                     <h1>Add a Salesperson</h1>
                     <form onSubmit={handleSubmit} id="create-salesperson-form">
                         <div className='form-floating mb-3'>
-                            <input onChange={handleFormChange} placeholder='First name' required type='text' name='first name' id='first name' className='form-control' />
+                            <input onChange={handleFormChange} placeholder='First name' required type='text' name='first_name' id='first name' className='form-control' />
                             <label htmlFor='first name'>First name</label>
                         </div>
                         <div className='form-floating mb-3'>
-                            <input onChange={handleFormChange} placeholder='Last name' required type='text' name='last name' id='last name' className='form-control' />
+                            <input onChange={handleFormChange} placeholder='Last name' required type='text' name='last_name' id='last name' className='form-control' />
                             <label htmlFor='last name'>Last name</label>
                         </div>
                         <div className='form-floating mb-3'>
-                            <input onChange={handleFormChange} placeholder='Employee id' required type='text' name='employee id' id='employee id' className='form-control' />
+                            <input onChange={handleFormChange} placeholder='Employee id' required type='text' name='employee_id' id='employee id' className='form-control' />
                             <label htmlFor='employee id'>Employee id</label>
                         </div>
                         <button type="submit" className="btn btn-light">Create</button>
