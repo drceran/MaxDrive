@@ -452,6 +452,8 @@ microservice, here.
 	"deleted": true
 }
 ```
+</details>
+
 #### Appointments
 | HTTP Method | URL | Description |
 |---|---|---|
@@ -559,7 +561,7 @@ microservice, here.
 	}
 ]
 ```
-
+</details>
 <details>
 <summary><strong>Example DELETE Output</strong></summary>
 
@@ -569,6 +571,7 @@ microservice, here.
 	"deleted": true
 }
 ```
+</details>
 ## Sales microservice
 
 Explain your models and integration with the inventory
