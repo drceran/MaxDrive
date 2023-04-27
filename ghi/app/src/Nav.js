@@ -13,6 +13,7 @@ function Nav() {
         <NavLink className="nav-item me-3 active" to="/vehicles/new">Create a Model</NavLink>
         <NavLink className="nav-item me-3 active" to="/technicians/">Technicians</NavLink>
         <NavLink className="nav-item me-3 active" to="/technicians/new">Add a Technician</NavLink>
+
         <NavLink className="nav-item me-3 active" to="/appointments/">Service Appointments</NavLink>
         <NavLink className="nav-item me-3 active" to="/appointments/new">Create a Service Appointment</NavLink>
         <NavLink className="nav-item me-3 active" to="servicehistory">Service History</NavLink>
