@@ -1,9 +1,7 @@
+![CarCar picture](CarCar.JPG)
 # CarCar
-![CarCar picture](2023-04-26-16-20-15.png)
-
 
 CarCar provides car dealerships with the ability to easily manage their inventory, service center, and sales!
-Note to self: Move all endpoint URLs to design section?
 
 ## Team:
 
