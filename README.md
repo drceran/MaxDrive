@@ -59,6 +59,7 @@ $ ...
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
+
 ##### List manufacturers:
 ```
 {
@@ -82,6 +83,7 @@ $ ...
 
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+
 ##### Input:
 ```
 {
@@ -100,6 +102,7 @@ $ ...
 
 <details>
 <summary><strong>Example Delete Output</strong></summary>
+
 ##### Delete a specific manufacturer:
 ```
 {
@@ -118,6 +121,7 @@ $ ...
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
+
 ##### List vehicle models:
 ```
 {
@@ -153,6 +157,7 @@ $ ...
 
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+
 ##### Input:
 ```
 {
@@ -179,6 +184,7 @@ $ ...
 
 <details>
 <summary><strong>Example Delete Output</strong></summary>
+
 ##### Delete a specific vehicle model:
 ```
 {
@@ -204,6 +210,7 @@ $ ...
 
 <details>
 <summary><strong>Example GET Outputs</strong></summary>
+
 ##### List vehicle models:
 ```
 {
@@ -239,6 +246,7 @@ $ ...
 
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+
 ##### Input:
 ```
 {
@@ -265,6 +273,7 @@ $ ...
 
 <details>
 <summary><strong>Example Delete Output</strong></summary>
+
 ##### Delete a specific vehicle model:
 ```
 {
@@ -277,6 +286,7 @@ $ ...
 		"name": "BMW"
 	}
 }
+```
 ## Service microservice
 
 Explain your models and integration with the inventory
