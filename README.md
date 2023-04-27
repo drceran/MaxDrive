@@ -33,17 +33,25 @@ Include a couple of sentences describing how they work together
 
 ## Installation
 ### Pre-requisites
-Ensure you have the latest version of docker on your Docker host machine.
+Ensure you have the latest version of Docker on your Docker host machine.
 
 ### Quick Start
 Fork the project and clone locally to your Docker host.
-
-To run this project:
-
 ```
-$ ...
+git clone https://gitlab.com/esraceran/project-beta.git
 ```
 
+Change your working directory to the project's directory.
+```
+cd project-beta
+```
+
+Pop open Docker Desktop if it's not running already and execute the following commands:
+```
+docker volume create beta-data
+docker compose build
+docker compose up
+```
 
 ## Inventory Microservice
 
