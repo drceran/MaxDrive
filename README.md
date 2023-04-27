@@ -154,6 +154,7 @@ $ ...
 	}
 }
 ```
+</details>
 
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
@@ -181,6 +182,7 @@ $ ...
 	}
 }
 ```
+</details>
 
 <details>
 <summary><strong>Example Delete Output</strong></summary>
@@ -198,6 +200,7 @@ $ ...
 	}
 }
 ```
+</details>
 
 #### Automobiles
 | HTTP Method | URL | Description |
@@ -243,6 +246,7 @@ $ ...
 	}
 }
 ```
+</details>
 
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
@@ -270,6 +274,7 @@ $ ...
 	}
 }
 ```
+</details>
 
 <details>
 <summary><strong>Example Delete Output</strong></summary>
@@ -287,6 +292,7 @@ $ ...
 	}
 }
 ```
+</details>
 ## Service microservice
 
 Explain your models and integration with the inventory
