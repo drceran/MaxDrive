@@ -4,7 +4,8 @@ from django.db import models
 
 
 class AutomobileVO(models.Model):
-    vin = models.PositiveBigIntegerField()
+    vin = models.CharField(max_length=17, unique=True)
+    sold = models.BooleanField(default=False)
 
 
 class Salesperson(models.Model):
@@ -23,17 +24,17 @@ class Customer(models.Model):
 class Sale(models.Model):
     automobile = models.ForeignKey(
         AutomobileVO,
-        related_name="sales",
+        related_name="automobiles",
         on_delete=models.CASCADE,
     )
     salesperson = models.ForeignKey(
         Salesperson,
-        related_name="sales",
+        related_name="salespersom",
         on_delete=models.CASCADE,
     )
     customer = models.ForeignKey(
         Customer,
-        related_name="sales",
+        related_name="customers",
         on_delete=models.CASCADE
     )
     price = models.PositiveIntegerField()

@@ -1,0 +1,64 @@
+import React, { useEffect, useState } from 'react';
+
+function SalespeopleCreate(props) {
+    const [formData, setFormData] = useState({
+        first_name: '',
+        last_name: '',
+        employee_id: '',
+    });
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const url = "http://localhost:8090/api/salespeople/";
+        const fetchConfig = {
+            method: "post",
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': "application/json",
+            },
+        };
+        const response = await fetch(url, fetchConfig);
+
+        if (response.ok) {
+            setFormData({
+                first_name: '',
+                last_name: '',
+                employee_id: '',
+            });
+            event.target.reset();
+        }
+    }
+    const handleFormChange = (e) => {
+        const value = e.target.value;
+        const name = e.target.name;
+
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    }
+    return(
+        <div className='row'>
+            <div className='offset-3 col-6'>
+                <div className='shadow p-4 mt-4'>
+                    <h1>Add a Salesperson</h1>
+                    <form onSubmit={handleSubmit} id="create-salesperson-form">
+                        <div className='form-floating mb-3'>
+                            <input onChange={handleFormChange} placeholder='First name' required type='text' name='first name' id='first name' className='form-control' />
+                            <label htmlFor='first name'>First name</label>
+                        </div>
+                        <div className='form-floating mb-3'>
+                            <input onChange={handleFormChange} placeholder='Last name' required type='text' name='last name' id='last name' className='form-control' />
+                            <label htmlFor='last name'>Last name</label>
+                        </div>
+                        <div className='form-floating mb-3'>
+                            <input onChange={handleFormChange} placeholder='Employee id' required type='text' name='employee id' id='employee id' className='form-control' />
+                            <label htmlFor='employee id'>Employee id</label>
+                        </div>
+                        <button type="submit" className="btn btn-light">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    )
+}
+export default SalespeopleCreate;
