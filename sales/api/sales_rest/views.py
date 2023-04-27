@@ -8,7 +8,7 @@ import json
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", ]
+    properties = ["vin","sold" ]
 
 
 class SalespersonEncoder(ModelEncoder):
