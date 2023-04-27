@@ -16,6 +16,11 @@ function Nav() {
         <NavLink className="nav-item me-3 active" to="/appointments/">Service Appointments</NavLink>
         <NavLink className="nav-item me-3 active" to="/appointments/new">Create a Service Appointment</NavLink>
         <NavLink className="nav-item" to="/salespeople">Salespeople</NavLink>
+        <NavLink className="nav-item" to="/salespeople/new">Create Salesperson</NavLink>
+        <NavLink className="nav-item" to="/customers/">Customers</NavLink>
+        <NavLink className="nav-item" to="customers/new">Create Customer</NavLink>
+        <NavLink className="nav-item" to="/sales/">Sales</NavLink>
+        <NavLink className="nav-item" to="/sales/new">Record New Sale</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
