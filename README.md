@@ -80,6 +80,7 @@ $ ...
 	"name": "BMW"
 }
 ```
+</details>
 
 <details>
 <summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
