@@ -12,7 +12,6 @@ export default function AppointmentList(){
         }
     }
 
-
     const loadInventory = async() =>{
         const response = await fetch("http://localhost:8100/api/automobiles/")
         if (response.ok){
@@ -21,8 +20,9 @@ export default function AppointmentList(){
         }
     }
 
-    useEffect(()=> {loadAppointments()},[])
-    useEffect(()=> {loadInventory()},[])
+    useEffect(()=> {
+        loadAppointments();
+        loadInventory()},[])
 
     const handleCancelUpdate = async (id) =>{
         const url = `http://localhost:8080/api/appointments/${id}/cancel/`;
