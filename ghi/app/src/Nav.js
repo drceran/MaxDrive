@@ -15,6 +15,7 @@ function Nav() {
         <NavLink className="nav-item me-3 active" to="/technicians/new">Add a Technician</NavLink>
         <NavLink className="nav-item me-3 active" to="/appointments/">Service Appointments</NavLink>
         <NavLink className="nav-item me-3 active" to="/appointments/new">Create a Service Appointment</NavLink>
+        <NavLink className="nav-item me-3 active" to="servicehistory">Service History</NavLink>
         <NavLink className="nav-item" to="/salespeople">Salespeople</NavLink>
         <NavLink className="nav-item" to="/salespeople/new">Create Salesperson</NavLink>
         <NavLink className="nav-item" to="/customers/">Customers</NavLink>

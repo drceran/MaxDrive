@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 
 export default function AppointmentList(){
     const [appointments, setAppointments] = useState([])
+    const [vinInventory, setVinInventory] = useState([])
 
     const loadAppointments = async() =>{
         const response = await fetch('http://localhost:8080/api/appointments/')
@@ -11,8 +12,40 @@ export default function AppointmentList(){
         }
     }
 
+
+    const loadInventory = async() =>{
+        const response = await fetch("http://localhost:8100/api/automobiles/")
+        if (response.ok){
+            const data = await response.json();
+            setVinInventory(data.autos.map(auto => auto.vin));
+        }
+    }
+
     useEffect(()=> {loadAppointments()},[])
-    console.log(appointments)
+    useEffect(()=> {loadInventory()},[])
+
+    const handleCancelUpdate = async (id) =>{
+        const url = `http://localhost:8080/api/appointments/${id}/cancel/`;
+        const fetchConfig = {
+            method: "PUT"
+        }
+        const response = await fetch(url, fetchConfig);
+        if (response.ok){
+            loadAppointments()
+        }
+        console.log(appointments)
+    }
+
+    const handleFinishUpdate = async (id) =>{
+        const url = `http://localhost:8080/api/appointments/${id}/finish/`;
+        const fetchConfig = {
+            method: "PUT"
+        }
+        const response = await fetch(url, fetchConfig);
+        if (response.ok){
+            loadAppointments()
+        }
+    }
 
     return(
         <table className="table table-striped">
@@ -28,15 +61,21 @@ export default function AppointmentList(){
                 </tr>
             </thead>
             <tbody>
-                {appointments.map(appointment => (
+                {appointments.filter(appointment => appointment.status !== 'cancel' && appointment.status !== 'finish').map(appointment => (
                     <tr key={ appointment.id }>
                         <td>{appointment.vin}</td>
-                        <td>Placeholder</td>
+                        <td>{appointment.vin in vinInventory ? "Yes" : "No"}</td>
                         <td>{appointment.customer}</td>
                         <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
                         <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
                         <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
                         <td>{appointment.reason}</td>
+                        <td>
+                            <button type="button" className="btn btn-primary" name="cancel-button" onClick={()=>handleCancelUpdate(appointment.id)}>Cancel</button>
+                        </td>
+                        <td>
+                            <button type="button" className="btn btn-primary" name="finish-button" onClick={()=>handleFinishUpdate(appointment.id)}>Finish</button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
