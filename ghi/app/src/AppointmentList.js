@@ -52,7 +52,7 @@ export default function AppointmentList(){
                 <thead>
                     <tr>
                         <th>VIN</th>
-                        <th>Is VIP?</th>
+                        <th>VIP?</th>
                         <th>Customer</th>
                         <th>Date</th>
                         <th>Time</th>
