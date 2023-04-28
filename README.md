@@ -17,8 +17,8 @@ CarCar provides car dealerships with the ability to easily manage their inventor
 
 ## Design
 ### Domain-Driven Architecture
-Add in the DDD graphic
-Include a couple of sentences describing how they work together
+CarCar is a web application that is design to manage an automobile dealership. It allows users to track their inventory, sales and car services. There are three amicroservices in this project: 1. inventory, 2.services, 3. sale. These microservices utilize RESTful API in the backend. In the user interface data is being displayed dynamically and allows users to interact with the application. Both sale and service microservices have their own AutomobileVO (Automobile value object) which is created and updated through their own poll application. In this way, sale and service microservices are able to request and get Automobile data from the Inventory microservice. A visual explanation of the project is presented in the below diagram.
+![Diagram for the project](carcar_diagram.png)
 
 
 ### URLs and Ports Summary
@@ -576,6 +576,293 @@ microservice, here.
 
 Explain your models and integration with the inventory
 microservice, here.
+
+## Sales Microservice
+
+Two applications "Api" and "Poll" are contained in Sales microservice.
+
+Api is a Django application with a Django Project named "sales_project". This project consists a Django app named "sales_rest". sales_rest app handles list, create and delete functionality for salespeople (which are objects of SalesPerson models), customers (which are objects of Customer model) and sales (which are objects of Sale model) of specific automobiles (AutomobilesVO objects) in a dealership's inventory.
+
+Poll is an application for polling the Automobile data from the Inventory API every 60 seconds and creates or updates an AutomobileVO object within Sales database.
+
+We utilized React to render a dynamic single page application.
+
+### RESTful Endpoints
+#### Salespeople
+| HTTP Method | URL | Description |
+|---|---|---|
+|`GET`| http://localhost:8090/api/salespeople/ | List salespeople |
+|`POST`| http://localhost:8090/api/salespeople/ | Create a salesperson |
+|`DELETE`| http://localhost:8090/api/salespeople/:id | Delete a specific salesperson |
+|`GET`| http://localhost:8090/api/salespeople/:id/sales | List saleshistory of a specific salesperson |
+
+<details>
+<summary><strong>Example GET Output</strong></summary>
+
+##### List salespeople:
+```
+{
+	"salespersons": [
+		{
+			"first_name": "Fran",
+			"last_name": "Healy",
+			"employee_id": "1234567",
+			"id": 1
+		},
+	]
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"first_name":"James",
+	"last_name":"Joyce",
+	"employee_id":1666404
+}
+```
+
+##### Output:
+```
+{
+	"first_name": "James",
+	"last_name": "Joyce",
+	"employee_id": 1666404,
+	"id": 18
+}
+```
+</details>
+
+<details>
+<summary><strong>Example DELETE Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"id":18
+}
+```
+
+##### Output:
+```
+{
+	"deleted": true
+}
+```
+</details>
+
+-------------------------------------------------------------------------------------------
+#### Customers Models
+| HTTP Method | URL | Description |
+|---|---|---|
+|`GET`| http://localhost:8090/api/customers/ | List customers |
+|`POST`| http://localhost:8090/api/customers/ | Create a customer |
+|`DELETE`| http://localhost:8090/api/customers/:id | Delete a specific customer |
+
+<details>
+<summary><strong>Example GET Output</strong></summary>
+
+##### List customers:
+```
+{
+	"customers": [
+		{
+			"first_name": "Zane",
+			"last_name": "Hudson",
+			"address": "4056 Los Gatos",
+			"phone_number": "3109377303",
+			"id": 5
+		},
+	]
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"first_name":"Joanne",
+	"last_name":"Rowling" ,
+	"address": "444 Campbell Ave",
+	"phone_number": 3109377303
+}
+```
+
+##### Output:
+```
+{
+	"customer": {
+		"first_name": "Joanne",
+		"last_name": "Rowling",
+		"address": "444 Campbell Ave",
+		"phone_number": 3109377303,
+		"id": 12
+	}
+}
+```
+</details>
+
+<details>
+<summary><strong>Example DELETE Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"id":12
+}
+```
+
+##### Output:
+```
+{
+	"deleted": true
+}
+```
+</details>
+
+-------------------------------------------------------------------------------------------
+#### Sales Models
+| HTTP Method | URL | Description |
+|---|---|---|
+|`GET`| http://localhost:8090/api/sales/ | List sales |
+|`POST`| http://localhost:8090/api/sales/ | Create a sale |
+|`DELETE`| http://localhost:8090/api/sales/:id | Delete a specific sale |
+
+<details>
+<summary><strong>Example GET Output</strong></summary>
+
+##### List sales:
+```
+{
+	"sales": [
+		{
+			"automobile": {
+				"vin": "12312312312312312",
+				"sold": false
+			},
+			"salesperson": {
+				"first_name": "Fran",
+				"last_name": "Healy",
+				"employee_id": "1234567",
+				"id": 1
+			},
+			"customer": {
+				"first_name": "Zane",
+				"last_name": "Hudson",
+				"address": "4056 Los Gatos",
+				"phone_number": "3109377303",
+				"id": 5
+			},
+			"price": 888,
+			"id": 4
+		},
+	]
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"salesperson": 1,
+	"customer": 8,
+	"automobile": "12312312312312312",
+	"price": "888"
+}
+```
+
+##### Output:
+```
+{
+	"sale": {
+		"automobile": {
+			"vin": "12312312312312312",
+			"sold": false
+		},
+		"salesperson": {
+			"first_name": "Fran",
+			"last_name": "Healy",
+			"employee_id": "1234567",
+			"id": 1
+		},
+		"customer": {
+			"first_name": "Charlotte",
+			"last_name": "Mina",
+			"address": "40555 Stanford",
+			"phone_number": "3109377303",
+			"id": 8
+		},
+		"price": "888",
+		"id": 12
+	}
+}
+```
+</details>
+
+<details>
+<summary><strong>Example DELETE Input and Output</strong></summary>
+
+##### Input:
+```
+{
+	"id":12
+}
+```
+
+##### Output:
+```
+{
+	"automobile": {
+		"vin": "12312312312312312",
+		"sold": false
+	},
+	"salesperson": {
+		"first_name": "Fran",
+		"last_name": "Healy",
+		"employee_id": "1234567",
+		"id": 1
+	},
+	"customer": {
+		"first_name": "Charlotte",
+		"last_name": "Mina",
+		"address": "40555 Stanford",
+		"phone_number": "3109377303",
+		"id": 8
+	},
+	"price": 888,
+	"id": null
+}
+```
+
+##### Input:
+```
+With the id that has already been deleted:
+{
+	"id":12
+}
+```
+
+##### Output:
+```
+With the id that has already been deleted:
+{
+	"message": "Sale does not exist."
+}
+```
+</details>
 
 ### RESTful Endpoints
 #### Salespersons
