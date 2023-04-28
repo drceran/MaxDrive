@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function AppointmentForm(){
+    const navigate = useNavigate();
+
     const[formData, setFormData] = useState({
         date:'',
         time:'',
@@ -33,7 +36,7 @@ export default function AppointmentForm(){
         e.preventDefault();
 
         const {date,time, ...formDataClean} = formData;
-        const dateTime = `${date}${time}`;
+        const dateTime = `${date}T${time}`;
 
         const url = "http://localhost:8080/api/appointments/"
         const fetchOptions = {
@@ -54,6 +57,7 @@ export default function AppointmentForm(){
                 technician:'',
                 reason:'',
             })
+            navigate("/appointments/")
         }
     }
 

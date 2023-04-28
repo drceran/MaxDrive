@@ -22,8 +22,8 @@ function NavigationBar() {
         </NavDropdown>
         <NavDropdown title="Services" id="services-dropdown">
           <NavDropdown title="Technicians" drop="end" id="technicians-dropdown">
-            <NavDropdown.Item href="/manufacturers">Technicians list</NavDropdown.Item>
-            <NavDropdown.Item href="/manufacturers/new">Add a technician</NavDropdown.Item>
+            <NavDropdown.Item href="/technicians">Technicians list</NavDropdown.Item>
+            <NavDropdown.Item href="/technicians/new">Add a technician</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Service Appointments" drop="end" id="appointments-dropdown">
               <NavDropdown.Item href="/appointments">Appointments list</NavDropdown.Item>

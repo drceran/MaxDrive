@@ -16,6 +16,7 @@ export default function AppointmentList(){
         const response = await fetch("http://localhost:8100/api/automobiles/")
         if (response.ok){
             const data = await response.json();
+            console.log(data)
             setVinInventory(data.autos.map(auto => auto.vin));
         }
     }
@@ -23,6 +24,10 @@ export default function AppointmentList(){
     useEffect(()=> {
         loadAppointments();
         loadInventory()},[])
+
+    useEffect(() => {
+        console.log("vinInventory:::", vinInventory);
+        }, [vinInventory]);
 
     const handleCancelUpdate = async (id) =>{
         const url = `http://localhost:8080/api/appointments/${id}/cancel/`;
@@ -61,10 +66,10 @@ export default function AppointmentList(){
                 </tr>
             </thead>
             <tbody>
-                {appointments.filter(appointment => appointment.status !== 'cancel' && appointment.status !== 'finish').map(appointment => (
+                {appointments.filter(appointment => appointment.status !== 'cancelled' && appointment.status !== 'finished').map(appointment => (
                     <tr key={ appointment.id }>
                         <td>{appointment.vin}</td>
-                        <td>{appointment.vin in vinInventory ? "Yes" : "No"}</td>
+                        <td>{vinInventory.includes(appointment.vin) ? "Yes" : "No"}</td>
                         <td>{appointment.customer}</td>
                         <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
                         <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>

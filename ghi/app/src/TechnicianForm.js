@@ -1,5 +1,5 @@
-import { useState } from "react"
-
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function TechnicianForm(){
     const[formData, setFormData] = useState({
@@ -7,6 +7,8 @@ export default function TechnicianForm(){
         last_name: '',
         employee_id: '',
     })
+
+    const navigate = useNavigate();
 
     const handleFormChange = (e) =>{
         const name = e.target.name;
@@ -32,7 +34,11 @@ export default function TechnicianForm(){
                 last_name: '',
                 employee_id: ''
             })
+            navigate("/technicians")
+        } else {
+            alert('Error: employee ID is not unique')
         }
+
     }
 
     return(
