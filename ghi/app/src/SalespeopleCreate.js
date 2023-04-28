@@ -54,7 +54,7 @@ function SalespeopleCreate(props) {
                             <input onChange={handleFormChange} placeholder='Employee id' required type='text' name='employee_id' id='employee id' className='form-control' />
                             <label htmlFor='employee id'>Employee id</label>
                         </div>
-                        <button type="submit" className="btn btn-light">Create</button>
+                        <button type="submit" className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>

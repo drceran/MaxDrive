@@ -97,7 +97,7 @@ export default function AppointmentForm(){
                     <input onChange={handleFormChange} required type="text" name="reason" id="reason" className="form-control" value={formData.reason}/>
                     <label htmlFor="reason">Reason</label>
                 </div>
-                <button className="btn btn-primary">Add</button>
+                <button className="btn btn-secondary">Add</button>
             </form>
             </div>
         </div>

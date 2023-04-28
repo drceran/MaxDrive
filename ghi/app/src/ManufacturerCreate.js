@@ -46,7 +46,7 @@ function ManufacturerCreate(props) {
                             <input onChange={handleFormChange} placeholder='Name' required type='text' name='name' id='name' className='form-control' />
                             <label htmlFor='name'>Manufacturer name</label>
                         </div>
-                        <button type="submit" className="btn btn-light">Create</button>
+                        <button type="submit" className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>

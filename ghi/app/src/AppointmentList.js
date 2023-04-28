@@ -76,10 +76,10 @@ export default function AppointmentList(){
                         <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
                         <td>{appointment.reason}</td>
                         <td>
-                            <button type="button" className="btn btn-primary" name="cancel-button" onClick={()=>handleCancelUpdate(appointment.id)}>Cancel</button>
+                            <button type="button" className="btn btn-secondary" name="cancel-button" onClick={()=>handleCancelUpdate(appointment.id)}>Cancel</button>
                         </td>
                         <td>
-                            <button type="button" className="btn btn-primary" name="finish-button" onClick={()=>handleFinishUpdate(appointment.id)}>Finish</button>
+                            <button type="button" className="btn btn-secondary" name="finish-button" onClick={()=>handleFinishUpdate(appointment.id)}>Finish</button>
                         </td>
                     </tr>
                 ))}

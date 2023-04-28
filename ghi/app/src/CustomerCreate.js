@@ -54,7 +54,7 @@ function CustomerCreate(props) {
                             <input onChange={handleFormChange} placeholder='Phone Number' required type='text' name='phone_number' id='phone_number' className='form-control' />
                             <label htmlFor='phone_number'>Phone number</label>
                         </div>
-                        <button type="submit" className="btn btn-light">Create</button>
+                        <button type="submit" className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>

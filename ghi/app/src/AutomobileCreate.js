@@ -86,7 +86,7 @@ function AutomobileCreate() {
                             </select>
                             <label htmlFor='model_id'>Model</label>
                         </div>
-                        <button type="submit" className="btn btn-light">Create</button>
+                        <button type="submit" className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>

@@ -59,7 +59,7 @@ export default function TechnicianForm(){
                     <input onChange={handleFormChange} placeholder="Employee ID" required type="text" name="employee_id" id="employee_id" className="form-control" value={formData.employee_id}/>
                     <label htmlFor="employee_id">Employee ID</label>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <button className="btn btn-secondary">Create</button>
             </form>
             </div>
         </div>

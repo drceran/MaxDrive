@@ -81,7 +81,7 @@ export default function VehicleForm() {
                         })}
                     </select>
                 </div>
-                <button className="btn btn-primary">Add</button>
+                <button className="btn btn-secondary">Add</button>
             </form>
             </div>
         </div>

@@ -121,7 +121,7 @@ function SaleCreate() {
                             <input value={formData.price} onChange={handleFormChange} placeholder="price" required type="text" name="price" id="price" className='form-control' />
                             <label htmlFor="price">Price</label>
                         </div>
-                        <button className="btn btn-primary">Create</button>
+                        <button className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>
