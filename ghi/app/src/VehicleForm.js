@@ -23,7 +23,6 @@ export default function VehicleForm() {
     useEffect(()=> {fetchManufacturers()}, []);
 
     const handleFormChange = (e) => {
-        console.log(e);
         const value = e.target.value;
         const inputName = e.target.name;
 
@@ -32,7 +31,6 @@ export default function VehicleForm() {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        console.log(formData)
         const url = "http://localhost:8100/api/models/"
 
         const fetchOptions = {

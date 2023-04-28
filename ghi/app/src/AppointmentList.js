@@ -16,7 +16,6 @@ export default function AppointmentList(){
         const response = await fetch("http://localhost:8100/api/automobiles/")
         if (response.ok){
             const data = await response.json();
-            console.log(data)
             setVinInventory(data.autos.map(auto => auto.vin));
         }
     }
@@ -24,10 +23,6 @@ export default function AppointmentList(){
     useEffect(()=> {
         loadAppointments();
         loadInventory()},[])
-
-    useEffect(() => {
-        console.log("vinInventory:::", vinInventory);
-        }, [vinInventory]);
 
     const handleCancelUpdate = async (id) =>{
         const url = `http://localhost:8080/api/appointments/${id}/cancel/`;
@@ -38,7 +33,6 @@ export default function AppointmentList(){
         if (response.ok){
             loadAppointments()
         }
-        console.log(appointments)
     }
 
     const handleFinishUpdate = async (id) =>{
