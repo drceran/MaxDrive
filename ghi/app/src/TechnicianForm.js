@@ -43,26 +43,26 @@ export default function TechnicianForm(){
 
     return(
         <div className="row">
-        <div className="offset-3 col-6">
-            <div className="shadow p-4 mt-4">
-            <h1>Add a technician</h1>
-            <form onSubmit={handleSubmit} id="create-technician-form">
-                <div className="form-floating mb-3">
-                    <input onChange={handleFormChange} placeholder="First Name" required type="first_name" name="first_name" id="first_name" className="form-control" value={formData.first_name}/>
-                    <label htmlFor="first_name">First Name</label>
+            <div className="offset-3 col-6">
+                <div className="shadow p-4 mt-4">
+                <h1>Add a technician</h1>
+                <form onSubmit={handleSubmit} id="create-technician-form">
+                    <div className="form-floating mb-3">
+                        <input onChange={handleFormChange} placeholder="First Name" required type="first_name" name="first_name" id="first_name" className="form-control" value={formData.first_name}/>
+                        <label htmlFor="first_name">First Name</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input onChange={handleFormChange} placeholder="Last Name" required type="text" name="last_name" id="last_name" className="form-control" value={formData.last_name}/>
+                        <label htmlFor="last_name">Last Name</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input onChange={handleFormChange} placeholder="Employee ID" required type="text" name="employee_id" id="employee_id" className="form-control" value={formData.employee_id}/>
+                        <label htmlFor="employee_id">Employee ID</label>
+                    </div>
+                    <button className="btn btn-secondary">Create</button>
+                </form>
                 </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleFormChange} placeholder="Last Name" required type="text" name="last_name" id="last_name" className="form-control" value={formData.last_name}/>
-                    <label htmlFor="last_name">Last Name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleFormChange} placeholder="Employee ID" required type="text" name="employee_id" id="employee_id" className="form-control" value={formData.employee_id}/>
-                    <label htmlFor="employee_id">Employee ID</label>
-                </div>
-                <button className="btn btn-secondary">Create</button>
-            </form>
             </div>
-        </div>
         </div>
     )
 }

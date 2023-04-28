@@ -15,23 +15,25 @@ export default function TechnicianList(){
 
 
     return(
-        <table className="table table-striped">
-            <thead>
-                <tr>
-                    <th>Employee Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {technicians.map(technician => (
-                    <tr key={ technician.id }>
-                        <td>{technician.employee_id}</td>
-                        <td>{technician.first_name}</td>
-                        <td>{technician.last_name}</td>
+        <div className="container mt-2">
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {technicians.map(technician => (
+                        <tr key={ technician.id }>
+                            <td>{technician.employee_id}</td>
+                            <td>{technician.first_name}</td>
+                            <td>{technician.last_name}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }

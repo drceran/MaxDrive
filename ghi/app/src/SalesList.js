@@ -30,34 +30,35 @@ function SalesList({ }) {
         }
     }
 
-    return (<table className='table'>
-        <thead>
-            <tr>
-            <th>Salesperson Employee ID</th>
-            <th>Salesperson Name</th>
-            <th>Customer</th>
-            <th>VIN</th>
-            <th>Price</th>
-            <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            {sales?.map(sale => {
-                return(
-                    <tr key={sale.id}>
-                        <td>{sale.salesperson.employee_id}</td>
-                        <td>{sale.salesperson.first_name} {sale.salesperson.last_name}</td>
-                        <td>{sale.customer.first_name} {sale.customer.last_name}</td>
-                        <td>{sale.automobile.vin}</td>
-                        <td>$ {sale.price}</td>
-                        <td><button onClick={()=> deleteSale(sale.id)} type="button" className="btn btn-outline-danger">Delete me!</button></td>
+    return (
+        <div className="container mt-4">
+            <table className='table'>
+                <thead>
+                    <tr>
+                    <th>Salesperson Employee ID</th>
+                    <th>Salesperson Name</th>
+                    <th>Customer</th>
+                    <th>VIN</th>
+                    <th>Price</th>
+                    <th>Delete</th>
                     </tr>
-                )
-            })}
-        </tbody>
-
-
-    </table>
+                </thead>
+                <tbody>
+                    {sales?.map(sale => {
+                        return(
+                            <tr key={sale.id}>
+                                <td>{sale.salesperson.employee_id}</td>
+                                <td>{sale.salesperson.first_name} {sale.salesperson.last_name}</td>
+                                <td>{sale.customer.first_name} {sale.customer.last_name}</td>
+                                <td>{sale.automobile.vin}</td>
+                                <td>$ {sale.price}</td>
+                                <td><button onClick={()=> deleteSale(sale.id)} type="button" className="btn btn-outline-danger">Delete me!</button></td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
     );
 
 }

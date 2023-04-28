@@ -17,32 +17,34 @@ function AutomobileList() {
     }, []);
 
 return (
-    <table className='table'>
-        <thead>
-            <tr>
-                <th>VIN</th>
-                <th>Color</th>
-                <th>Year</th>
-                <th>Model</th>
-                <th>Manufacturer</th>
-                <th>Sold</th>
-            </tr>
-        </thead>
-        <tbody>
-            {automobilesdetails?.map(automobilesdetail => {
-                return(
-                    <tr key={automobilesdetail.id}>
-                        <td>{automobilesdetail.vin}</td>
-                        <td>{automobilesdetail.color}</td>
-                        <td>{automobilesdetail.year}</td>
-                        <td>{automobilesdetail.model.name}</td>
-                        <td>{automobilesdetail.model.manufacturer.name}</td>
-                        <td>{automobilesdetail.sold ? "Sold" : "Available"}</td>
-                    </tr>
-                );
-            })}
-        </tbody>
-    </table>
+    <div className="container mt-4">
+        <table className='table'>
+            <thead>
+                <tr>
+                    <th>VIN</th>
+                    <th>Color</th>
+                    <th>Year</th>
+                    <th>Model</th>
+                    <th>Manufacturer</th>
+                    <th>Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                {automobilesdetails?.map(automobilesdetail => {
+                    return(
+                        <tr key={automobilesdetail.id}>
+                            <td>{automobilesdetail.vin}</td>
+                            <td>{automobilesdetail.color}</td>
+                            <td>{automobilesdetail.year}</td>
+                            <td>{automobilesdetail.model.name}</td>
+                            <td>{automobilesdetail.model.manufacturer.name}</td>
+                            <td>{automobilesdetail.sold ? "Sold" : "Available"}</td>
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
+    </div>
 );
 }
 export default AutomobileList;

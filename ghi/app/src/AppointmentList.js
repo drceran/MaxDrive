@@ -53,37 +53,39 @@ export default function AppointmentList(){
     }
 
     return(
-        <table className="table table-striped">
-            <thead>
-                <tr>
-                    <th>VIN</th>
-                    <th>Is VIP?</th>
-                    <th>Customer</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Technician</th>
-                    <th>Reason</th>
-                </tr>
-            </thead>
-            <tbody>
-                {appointments.filter(appointment => appointment.status !== 'cancelled' && appointment.status !== 'finished').map(appointment => (
-                    <tr key={ appointment.id }>
-                        <td>{appointment.vin}</td>
-                        <td>{vinInventory.includes(appointment.vin) ? "Yes" : "No"}</td>
-                        <td>{appointment.customer}</td>
-                        <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
-                        <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
-                        <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
-                        <td>{appointment.reason}</td>
-                        <td>
-                            <button type="button" className="btn btn-secondary" name="cancel-button" onClick={()=>handleCancelUpdate(appointment.id)}>Cancel</button>
-                        </td>
-                        <td>
-                            <button type="button" className="btn btn-secondary" name="finish-button" onClick={()=>handleFinishUpdate(appointment.id)}>Finish</button>
-                        </td>
+        <div className="container mt-4">
+            <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th>VIN</th>
+                        <th>Is VIP?</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Technician</th>
+                        <th>Reason</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {appointments.filter(appointment => appointment.status !== 'cancelled' && appointment.status !== 'finished').map(appointment => (
+                        <tr key={ appointment.id }>
+                            <td>{appointment.vin}</td>
+                            <td>{vinInventory.includes(appointment.vin) ? "Yes" : "No"}</td>
+                            <td>{appointment.customer}</td>
+                            <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
+                            <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
+                            <td>{appointment.technician.first_name} {appointment.technician.last_name}</td>
+                            <td>{appointment.reason}</td>
+                            <td>
+                                <button type="button" className="btn btn-secondary" name="cancel-button" onClick={()=>handleCancelUpdate(appointment.id)}>Cancel</button>
+                            </td>
+                            <td>
+                                <button type="button" className="btn btn-secondary" name="finish-button" onClick={()=>handleFinishUpdate(appointment.id)}>Finish</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }

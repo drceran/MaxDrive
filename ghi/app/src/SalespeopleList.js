@@ -42,27 +42,30 @@ function SalespeopleList({ }) {
         }
     }
 
-    return (<table className='table'>
-        <thead>
-            <tr>
-                <th>Employee ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            {salespersons?.map(salesperson => {
-                return (
-                    <tr key={salesperson.employee_id}>
-                        <td>{salesperson.employee_id}</td>
-                        <td>{salesperson.first_name}</td>
-                        <td>{salesperson.last_name}</td>
-                        <td><button onClick={()=> deleteSalesperson(salesperson.id)} type="button" className="btn btn-outline-danger">Delete me! </button></td>
+    return (
+        <div className="container mt-2">
+            <table className='table'>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Delete</th>
                     </tr>
-                );
-            })}</tbody>
-    </table>
+                </thead>
+                <tbody>
+                    {salespersons?.map(salesperson => {
+                        return (
+                            <tr key={salesperson.employee_id}>
+                                <td>{salesperson.employee_id}</td>
+                                <td>{salesperson.first_name}</td>
+                                <td>{salesperson.last_name}</td>
+                                <td><button onClick={()=> deleteSalesperson(salesperson.id)} type="button" className="btn btn-outline-danger">Delete me! </button></td>
+                            </tr>
+                        );
+                    })}</tbody>
+            </table>
+        </div>
     );
 
 }

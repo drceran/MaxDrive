@@ -19,22 +19,24 @@ function ManufacturerList() {
 // fetch  `http://localhost:8000/api/manufacturers/</int:pk> - ${pk}`
 
 return (
-    <table className='table'>
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            {manufacturerdetails?.map(manufacturerdetail => {
-                return(
-                    <tr key={manufacturerdetail.id}>
-                        <td>{manufacturerdetail.name}</td>
-                    </tr>
-                );
-            })}
-        </tbody>
-    </table>
+    <div className="container mt-4">
+        <table className='table'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {manufacturerdetails?.map(manufacturerdetail => {
+                    return(
+                        <tr key={manufacturerdetail.id}>
+                            <td>{manufacturerdetail.name}</td>
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
+    </div>
 );
 }
 export default ManufacturerList;

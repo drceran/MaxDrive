@@ -36,7 +36,7 @@ export default function Servicehistory() {
         }
 
     return(
-        <div className="mt-3">
+        <div className="container mt-4">
             <div className="input-group mb-3">
                 <input type="text" className="form-control" id="search-bar" aria-describedby="search-button" placeholder="Search appointments by VIN" value={searchTerm} onChange = {handleSearch}/>
                 <button type="button" className="btn btn-secondary" id="search-button" onClick={handleSubmit}>Search</button>
