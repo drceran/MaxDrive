@@ -24,7 +24,7 @@ function App(props) {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <div className="container">
+      <div className="container-fluid">
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers">

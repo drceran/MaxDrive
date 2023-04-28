@@ -28,3 +28,16 @@ code {
 #saless-dropdown {
   color:black
 }
+
+.container-fluid {
+  padding: 0px;
+}
+
+.carousel-box {
+  height: 100%;
+}
+
+.carousel-caption {
+  top: 0;
+  bottom: auto;
+}
