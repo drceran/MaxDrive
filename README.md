@@ -35,6 +35,7 @@ CarCar is a web application that is design to manage an automobile dealership. I
 |---|---|
 |Manufacturers list|http://localhost:3000/manufacturers/|
 |Add a manufacturer|http://localhost:3000/manufacturers/new/|
+
 ##### Vehicles:
 | Feature | URL |
 |---|---|
@@ -51,6 +52,7 @@ CarCar is a web application that is design to manage an automobile dealership. I
 |---|---|
 |Technicians list|http://localhost:3000/technicians/|
 |Add a technician |http://localhost:3000/technicians/new/|
+
 ##### Appointments:
 | Feature | URL |
 |---|---|
@@ -75,6 +77,7 @@ CarCar is a web application that is design to manage an automobile dealership. I
 |---|---|
 |Technicians list|http://localhost:3000/sales/|
 |Add a sale |http://localhost:3000/sales/new/|
+|Salesperson history|http://localhost:3000/sales/history/
 
 
 ## Installation
@@ -595,7 +598,7 @@ We utilized React to render a dynamic single page application.
 |`GET`| http://localhost:8090/api/salespeople/:id/sales | List saleshistory of a specific salesperson |
 
 <details>
-<summary><strong>Example GET Output</strong></summary>
+<summary><strong>Example GET Outputs</strong></summary>
 
 ##### List salespeople:
 ```
@@ -610,8 +613,68 @@ We utilized React to render a dynamic single page application.
 	]
 }
 ```
-
 </details>
+
+<details>
+<summary><strong>Example GET Inputs and Outputs</strong></summary>
+
+##### List saleshistory of a specific salesperson:
+##### Input:
+```
+{
+	"employee_id":1234567
+}
+```
+
+##### Output:
+```
+{
+	"sales": [
+		{
+			"automobile": {
+				"vin": "12312312312312312",
+				"sold": false
+			},
+			"salesperson": {
+				"first_name": "Fran",
+				"last_name": "Healy",
+				"employee_id": "1234567",
+				"id": 1
+			},
+			"customer": {
+				"first_name": "Zane",
+				"last_name": "Hudson",
+				"address": "4056 Los Gatos",
+				"phone_number": "3109377303",
+				"id": 5
+			},
+			"price": 888,
+			"id": 4
+		},
+		{
+			"automobile": {
+				"vin": "12312312312312312",
+				"sold": false
+			},
+			"salesperson": {
+				"first_name": "Fran",
+				"last_name": "Healy",
+				"employee_id": "1234567",
+				"id": 1
+			},
+			"customer": {
+				"first_name": "Robert",
+				"last_name": "DeNiro",
+				"address": "4056 Los Altos",
+				"phone_number": "3109377303",
+				"id": 6
+			},
+			"price": 888,
+			"id": 5
+		},
+	]
+}
+```
 
 <details>
 <summary><strong>Example POST Input and Output</strong></summary>

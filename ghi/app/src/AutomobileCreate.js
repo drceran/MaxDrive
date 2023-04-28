@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function AutomobileCreate() {
-    const navigate = useNavigate();
+
 
     const [formData, setFormData] = useState({
         color: '',
@@ -10,7 +10,7 @@ function AutomobileCreate() {
         vin: '',
         model_id: '',
     });
-
+    const navigate = useNavigate();
     const [models, setModels] = useState([]);
 
     const fetchData = async () => {
@@ -44,7 +44,7 @@ function AutomobileCreate() {
                 vin: '',
                 model_id: '',
             });
-            event.target.reset();
+            // event.target.reset();
             navigate("/automobiles")
         }
     }
