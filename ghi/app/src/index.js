@@ -20,4 +20,3 @@ const loadVehicles = async () =>{
 }
 
 loadVehicles();
-

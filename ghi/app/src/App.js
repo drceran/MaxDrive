@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import MainPage from './MainPage';
-import Nav from './Nav';
+import NavigationBar from './Nav';
 import VehicleList from './VehicleList';
 import VehicleForm from './VehicleForm';
 import ManufacturerList from './ManufacturerList';
@@ -23,7 +23,7 @@ import SaleCreate from './SaleCreate';
 function App(props) {
   return (
     <BrowserRouter>
-      <Nav />
+      <NavigationBar />
       <div className="container">
         <Routes>
 
