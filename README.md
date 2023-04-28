@@ -1,4 +1,4 @@
-![CarCar picture](CarCar.JPG)
+![CarCar picture](carcar_mainpage.png)
 # CarCar
 
 CarCar provides car dealerships with the ability to easily manage their inventory, service center, and sales!
@@ -677,9 +677,10 @@ We utilized React to render a dynamic single page application.
 ```
 </details>
 
+<details>
 
 <summary><strong>Example POST Input and Output</strong></summary>
-<details>
+
 ##### Input:
 ```
 {
@@ -700,9 +701,10 @@ We utilized React to render a dynamic single page application.
 ```
 </details>
 
+<details>
 
 <summary><strong>Example DELETE Input and Output</strong></summary>
-<details>
+
 ##### Input:
 ```
 {
