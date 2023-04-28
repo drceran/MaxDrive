@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import NavDropDown from 'react-bootstrap';
+// import NavDropDown from 'react-bootstrap';
 
 function Nav() {
   return (
@@ -24,6 +24,7 @@ function Nav() {
         <NavLink className="nav-item" to="customers/new">Create Customer</NavLink>
         <NavLink className="nav-item" to="/sales/">Sales</NavLink>
         <NavLink className="nav-item" to="/sales/new">Record New Sale</NavLink>
+        <NavLink className="nav-item" to="/sales/history/">Salesperson History</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
