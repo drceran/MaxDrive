@@ -17,8 +17,8 @@ CarCar provides car dealerships with the ability to easily manage their inventor
 
 ## Design
 ### Domain-Driven Architecture
-Add in the DDD graphic
-Include a couple of sentences describing how they work together
+CarCar is a web application that is design to manage an automobile dealership. It allows users to track their inventory, sales and car services. There are three amicroservices in this project: 1. inventory, 2.services, 3. sale. These microservices utilize RESTful API in the backend. In the user interface data is being displayed dynamically and allows users to interact with the application. Both sale and service microservices have their own AutomobileVO (Automobile value object) which is created and updated through their own poll application. In this way, sale and service microservices are able to request and get Automobile data from the Inventory microservice. A visual explanation of the project is presented in the below diagram.
+![Diagram for the project](carcar_diagram.png)
 
 
 ### URLs and Ports Summary
@@ -576,6 +576,294 @@ microservice, here.
 
 Explain your models and integration with the inventory
 microservice, here.
+
+
+## Sale Microservice
+
+### RESTful Endpoints
+#### Salespeople
+| HTTP Method | URL | Description |
+|---|---|---|
+|`GET`| http://localhost:8100/api/manufacturers/ | List manufacturers |
+|`POST`| http://localhost:8100/api/manufacturers/ | Create a manufacturer |
+|`GET`| http://localhost:8100/api/manufacturers/:id/ | Get a specific manufacturer's detail |
+|`PUT`| http://localhost:8100/api/manufacturers/:id/ | Update a specific manufacturer |
+|`DELETE`| http://localhost:8100/api/manufacturers/:id/ | Delete a specific manufacturer |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List manufacturers:
+```
+{
+	"manufacturers": [
+		{
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "BMW"
+		}
+	]
+}
+```
+##### Get a specific manufacturer's detail:
+```
+{
+	"href": "/api/manufacturers/1/",
+	"id": 1,
+	"name": "BMW"
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+
+##### Input:
+```
+{
+  "name": "BMW"
+}
+```
+
+##### Output:
+```
+{
+	"href": "/api/manufacturers/1/",
+	"id": 1,
+	"name": "BMW"
+}
+```
+</details>
+
+<details>
+<summary><strong>Example Delete Output</strong></summary>
+
+##### Delete a specific manufacturer:
+```
+{
+	"id": null,
+	"name": "BMW"
+}
+```
+</details>
+
+#### Customers Models
+| HTTP Method | URL | Description |
+|---|---|---|
+|`GET`| http://localhost:8100/api/models/ | List vehicle models |
+|`POST`| http://localhost:8100/api/models/ | Get a vehicle model |
+|`GET`| http://localhost:8100/api/models/:id/ | Show a specific vehicle model's detail |
+|`PUT`| http://localhost:8100/api/models/:id/ | Update a specific vehicle model |
+|`DELETE`| http://localhost:8100/api/models/:id/ | Delete a specific vehicle model |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List vehicle models:
+```
+{
+	"models": [
+		{
+			"href": "/api/models/8/",
+			"id": 8,
+			"name": "M5",
+			"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+			"manufacturer": {
+				"href": "/api/manufacturers/3/",
+				"id": 3,
+				"name": "BMW"
+			}
+		}
+	]
+}
+```
+##### Get a specific vehicle model's detail:
+```
+{
+	"href": "/api/models/8/",
+	"id": 1,
+	"name": "M5",
+	"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+	"manufacturer": {
+		"href": "/api/manufacturers/3/",
+		"id": 1,
+		"name": "BMW"
+	}
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+
+##### Input:
+```
+{
+  "name": "M5",
+  "picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+  "manufacturer_id": 1
+}
+```
+
+##### Output:
+```
+{
+	"href": "/api/models/1/",
+	"id": 1,
+	"name": "M5",
+	"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+	"manufacturer": {
+		"href": "/api/manufacturers/1/",
+		"id": 1,
+		"name": "BMW"
+	}
+}
+```
+</details>
+<details>
+<summary><strong>Example Delete Output</strong></summary>
+
+##### Delete a specific vehicle model:
+```
+{
+	"id": null,
+	"name": "M5",
+	"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+	"manufacturer": {
+		"href": "/api/manufacturers/3/",
+		"id": 1,
+		"name": "BMW"
+	}
+}
+```
+</details>
+
+#### Sales Models
+| HTTP Method | URL | Description |
+|---|---|---|
+|`GET`| http://localhost:8100/api/automobiles/ | List automobiles |
+|`POST`| http://localhost:8100/api/automobiles/ | Create an automobile |
+|`GET`| http://localhost:8100/api/automobiles/:vin/ | Get a specific automobile's detail |
+|`PUT`| http://localhost:8100/api/automobiles/:vin/ | Update a specific automobile |
+|`DELETE`| http://localhost:8100/api/automobiles/:vin/ | Delete a specific automobile |
+
+<details>
+<summary><strong>Example GET Outputs</strong></summary>
+
+##### List automobiles:
+```
+{
+	"autos": [
+		{
+			"href": "/api/automobiles/WBSFV9C5XDD096380/",
+			"id": 1,
+			"color": "Moonstone Metallic",
+			"year": 2013,
+			"vin": "WBSFV9C5XDD096380",
+			"model": {
+				"href": "/api/models/1/",
+				"id": 1,
+				"name": "M5",
+				"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+				"manufacturer": {
+					"href": "/api/manufacturers/1/",
+					"id": 1,
+					"name": "BMW"
+				}
+			},
+			"sold": false
+		}
+	]
+}
+```
+##### Get a specific automobile's detail:
+```
+{
+	"href": "/api/automobiles/WBSFV9C5XDD096380/",
+	"id": 2,
+	"color": "Moonstone Metallic",
+	"year": 2013,
+	"vin": "WBSFV9C5XDD096380",
+	"model": {
+		"href": "/api/models/8/",
+		"id": 8,
+		"name": "M5",
+		"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+		"manufacturer": {
+			"href": "/api/manufacturers/3/",
+			"id": 3,
+			"name": "BMW"
+		}
+	},
+	"sold": false
+}
+```
+</details>
+
+<details>
+<summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+
+##### Input:
+```
+{
+  "color": "Moonstone Metallic",
+  "year": 2013,
+  "vin": "WBSFV9C5XDD096380",
+  "model_id": 1
+}
+```
+
+##### Output:
+```
+{
+	"href": "/api/automobiles/WBSFV9C5XDD096380/",
+	"id": 1,
+	"color": "Moonstone Metallic",
+	"year": 2013,
+	"vin": "WBSFV9C5XDD096380",
+	"model": {
+		"href": "/api/models/1/",
+		"id": 1,
+		"name": "M5",
+		"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+		"manufacturer": {
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "BMW"
+		}
+	},
+	"sold": false
+}
+```
+</details>
+
+<details>
+<summary><strong>Example Delete Output</strong></summary>
+
+##### Delete a specific vehicle model:
+```
+{
+	"href": "/api/automobiles/WBSFV9C5XDD096380/",
+	"id": null,
+	"color": "Moonstone Metallic",
+	"year": 2013,
+	"vin": "WBSFV9C5XDD096380",
+	"model": {
+		"href": "/api/models/1/",
+		"id": 1,
+		"name": "M5",
+		"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
+		"manufacturer": {
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "BMW"
+		}
+	},
+	"sold": false
+}
+```
+</details>
+
 
 ### RESTful Endpoints
 #### Salespersons
