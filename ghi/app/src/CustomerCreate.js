@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function CustomerCreate(props) {
+function CustomerCreate() {
     const [formData, setFormData] = useState({
 
     });
+    const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         const url = "http://localhost:8090/api/customers/";
@@ -20,7 +22,8 @@ function CustomerCreate(props) {
             setFormData({
 
             });
-            event.target.reset();
+            // event.target.reset();
+            navigate("/customers")
         }
     }
     const handleFormChange = (e) => {

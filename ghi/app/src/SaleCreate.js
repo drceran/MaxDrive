@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SaleCreate() {
     const [formData, setFormData] = useState({
@@ -7,7 +8,7 @@ function SaleCreate() {
         customer: '',
         price: '',
     });
-
+    const navigate = useNavigate();
     const [automobiles, setAutomobiles] = useState([]);
 
     const fetchData = async () => {
@@ -60,7 +61,7 @@ function SaleCreate() {
                 customer: '',
                 price: '',
             });
-            event.target.reset();
+            navigate("/sales")
         }
     }
 

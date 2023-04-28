@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SalespeopleCreate(props) {
     const [formData, setFormData] = useState({
@@ -6,6 +7,9 @@ function SalespeopleCreate(props) {
         last_name: '',
         employee_id: '',
     });
+
+    const navigate = useNavigate();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const url = "http://localhost:8090/api/salespeople/";
@@ -24,7 +28,8 @@ function SalespeopleCreate(props) {
                 last_name: '',
                 employee_id: '',
             });
-            event.target.reset();
+            navigate("/salespeople")
+            // event.target.reset(); navigate comes here
         }
     }
     const handleFormChange = (e) => {
