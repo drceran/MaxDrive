@@ -745,9 +745,10 @@ We utilized React to render a dynamic single page application.
 
 </details>
 
+<details>
 
 <summary><strong>Example POST Input and Output</strong></summary>
-<details>
+
 ##### Input:
 ```
 {
@@ -772,9 +773,10 @@ We utilized React to render a dynamic single page application.
 ```
 </details>
 
+<details>
 
 <summary><strong>Example DELETE Input and Output</strong></summary>
-<details>
+
 ##### Input:
 ```
 {
@@ -797,9 +799,10 @@ We utilized React to render a dynamic single page application.
 |`POST`| http://localhost:8090/api/sales/ | Create a sale |
 |`DELETE`| http://localhost:8090/api/sales/:id | Delete a specific sale |
 
+<details>
+
 <summary><strong>Example GET Output</strong></summary>
 
-<details>
 ##### List sales:
 ```
 {
@@ -831,9 +834,9 @@ We utilized React to render a dynamic single page application.
 
 </details>
 
-
-<summary><strong>Example POST Input and Output</strong></summary>
 <details>
+<summary><strong>Example POST Input and Output</strong></summary>
+
 
 ##### Input:
 ```
@@ -873,10 +876,8 @@ We utilized React to render a dynamic single page application.
 ```
 </details>
 
-
-<summary><strong>Example DELETE Input and Output</strong></summary>
-
 <details>
+<summary><strong>Example DELETE Input and Output</strong></summary>
 
 ##### Input:
 ```
