@@ -28,7 +28,7 @@ function NavigationBar() {
           <NavDropdown title="Service Appointments" drop="end" id="appointments-dropdown">
               <NavDropdown.Item href="/appointments">Appointments list</NavDropdown.Item>
               <NavDropdown.Item href="/appointments/new">Make an appointment</NavDropdown.Item>
-              <NavDropdown.Item href="/servicehistory">Service history</NavDropdown.Item>
+              <NavDropdown.Item href="/appointments/history">Service history</NavDropdown.Item>
           </NavDropdown>
         </NavDropdown>
         <NavDropdown title="Sales" className="nav-link-all" id="sales-dropdown">
