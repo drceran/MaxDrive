@@ -13,7 +13,6 @@ from service_rest.models import AutomobileVO
 
 def poll():
     while True:
-        print('Service poller polling for data')
         try:
             url = "http://project-beta-inventory-api-1:8000/api/automobiles/"
             response = requests.get(url)
