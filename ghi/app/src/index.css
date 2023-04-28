@@ -52,11 +52,13 @@ code {
 }
 
 #title1,
-#title2 {
+#title2,
+#title3, {
   font-size: 65px
 }
 
 #caption1,
-#caption2 {
+#caption2,
+#caption3 {
   font-size: 25px
 }

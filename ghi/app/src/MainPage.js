@@ -33,8 +33,8 @@ function MainPage() {
           alt=""
         />
         <Carousel.Caption>
-          <h3 id="title2">Car detailing campaign</h3>
-          <p id="caption2">Remember to let our customers know about the upcoming promotion will begin on May 15th!</p>
+          <h3 id="title3">Car detailing campaign</h3>
+          <p id="caption3">Remember to let our customers know about the upcoming promotion will begin on May 15th!</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
