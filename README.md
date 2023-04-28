@@ -12,8 +12,8 @@ CarCar provides car dealerships with the ability to easily manage their inventor
 - [Design](#design)
 - [Installation](#installation)
 - [Inventory Microservice](#inventory-microservice)
-- [Service Microservice](#sales-microservice)
-- [Sales Microservice](#service-microservice)
+- [Sales Microservice](#sales-microservice)
+- [Service Microservice](#service-microservice)
 
 ## Design
 ### Domain-Driven Architecture

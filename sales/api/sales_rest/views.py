@@ -156,18 +156,12 @@ def list_automobileVO(request):
         )
 
 
-
-# Hangisi dogru metodlarin- sadullah a sor.
-# @require_http_methods(["DELETE"])
-# def delete_salesperson(request, id):
-#     if request.method == "DELETE":
-#         try:
-#             salesperson = Salesperson.objects.get(id=id)
-#             salesperson.delete()
-#             return JsonResponse(
-#                 salesperson,
-#                 encoder=SalespersonEncoder,
-#                 safe=False,
-#             )
-#         except Salesperson.DoesNotExist:
-#             return JsonResponse({"message": "Salesperson does not exist."})
+@require_http_methods(["GET"])
+def salesperson_sale_history(request, id):
+    salesperson = Salesperson.objects.get(id=id)
+    sales = Sale.objects.filter(salesperson=salesperson)
+    return JsonResponse(
+        {"sales": sales},
+        encoder=SaleEncoder,
+        safe=False,
+    )

@@ -43,6 +43,7 @@ function NavigationBar() {
             <NavDropdown title="Sales" drop="end" id="saless-dropdown">
               <NavDropdown.Item href="/sales">Sales list</NavDropdown.Item>
               <NavDropdown.Item href="/sales/new" >Record a new sale</NavDropdown.Item>
+              <NavDropdown.Item href="/sales/history/">Salesperson History</NavDropdown.Item>
             </NavDropdown>
         </NavDropdown>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
