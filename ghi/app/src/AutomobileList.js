@@ -9,7 +9,6 @@ function AutomobileList() {
             const response = await fetch(url);
             if (response.ok) {
                 const data =await response.json();
-                // alert(data.autos[0].vin)
                 setAutomobiles(data.autos);
             }
         }

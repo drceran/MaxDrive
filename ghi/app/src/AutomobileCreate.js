@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function AutomobileCreate() {
-
-
     const [formData, setFormData] = useState({
         color: '',
         year: '',

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ManufacturerCreate(props) {
+function ManufacturerCreate() {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
