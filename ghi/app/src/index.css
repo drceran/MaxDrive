@@ -29,15 +29,34 @@ code {
   color:black
 }
 
+.cancel-button{
+  color: #fff;
+  background-color:rgb(254, 21, 21);
+  width: 100px;
+  float:right;
+}
+
+.finish-button{
+  color: #fff;
+  background-color:#13aa52;
+  width: 100px;
+  float:right;
+}
+
 .container-fluid {
   padding: 0px;
 }
 
 .carousel-box {
-  height: 100%;
+  height: calc(100vh - 50px);
 }
 
-.carousel-caption {
-  top: 0;
-  bottom: auto;
+#title1,
+#title2 {
+  font-size: 65px
+}
+
+#caption1,
+#caption2 {
+  font-size: 25px
 }

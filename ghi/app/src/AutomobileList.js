@@ -17,7 +17,7 @@ function AutomobileList() {
     }, []);
 
 return (
-    <div className="container mt-4">
+    <div className="container mt-2">
         <table className='table'>
             <thead>
                 <tr>
