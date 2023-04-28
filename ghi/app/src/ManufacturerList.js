@@ -19,7 +19,7 @@ function ManufacturerList() {
 // fetch  `http://localhost:8000/api/manufacturers/</int:pk> - ${pk}`
 
 return (
-    <div className="container mt-4">
+    <div className="container mt-2">
         <table className='table'>
             <thead>
                 <tr>

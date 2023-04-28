@@ -394,9 +394,11 @@ Once you've confirmed the Docker containers are running, access the application 
 </details>
 
 ## Service microservice
+The Service microservice contains two applications "Api" and "Poll".
 
-Explain your models and integration with the inventory
-microservice, here.
+Api includes most of the back-end functionality for the Service microservice. It contains three models: Technicians, Appointments, and AutomobileVO. This app enables various functionalities including adding/removing technicians, listing all technicians, making/deleting appointments, updating appointment statuses, and listing all appointments.
+
+Poll serves a role in polling Automobile data from the Inventory API every 60 seconds to create or update an AutomobileVO
 
 ### RESTful Endpoints
 #### Technicians
@@ -575,10 +577,6 @@ microservice, here.
 }
 ```
 </details>
-## Sales microservice
-
-Explain your models and integration with the inventory
-microservice, here.
 
 ## Sales Microservice
 
