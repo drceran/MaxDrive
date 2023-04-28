@@ -57,7 +57,7 @@ export default function Servicehistory() {
                     {appointments.map(appointment => (
                         <tr key={ appointment.id }>
                             <td>{appointment.vin}</td>
-                            <td>{appointment.vin in vinInventory ? "Yes" : "No"}</td>
+                            <td>{vinInventory.includes(appointment.vin) ? "Yes" : "No"}</td>
                             <td>{appointment.customer}</td>
                             <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
                             <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>

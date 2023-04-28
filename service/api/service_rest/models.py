@@ -11,6 +11,9 @@ class Technician(models.Model):
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.vin
+
 
 class Appointment(models.Model):
     date_time = models.DateTimeField()

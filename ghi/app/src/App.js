@@ -21,7 +21,7 @@ import SaleCreate from './SaleCreate';
 import SalespersonHistory from './SalespersonHistory';
 
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <NavigationBar />
@@ -33,7 +33,7 @@ function App(props) {
             <Route path="new" element={<ManufacturerCreate />} />
           </Route>
           <Route path="vehicles">
-            <Route index element={<VehicleList vehicles={props.vehicles} />} />
+            <Route index element={<VehicleList />} />
             <Route path="new" element={<VehicleForm />} />
           </Route>
           <Route path="technicians">

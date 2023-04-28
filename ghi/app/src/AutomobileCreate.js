@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AutomobileCreate() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         color: '',
         year: '',
@@ -10,7 +13,6 @@ function AutomobileCreate() {
 
     const [models, setModels] = useState([]);
 
-    // get models list
     const fetchData = async () => {
         const url = 'http://localhost:8100/api/models';
         const response = await fetch(url);
@@ -43,6 +45,7 @@ function AutomobileCreate() {
                 model_id: '',
             });
             event.target.reset();
+            navigate("/automobiles")
         }
     }
     const handleFormChange = (e) => { // e is an Event, contains e.target which is the React element that caused this event.

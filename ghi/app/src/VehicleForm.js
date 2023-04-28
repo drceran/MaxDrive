@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function VehicleForm() {
+    const navigate = useNavigate();
     const [manufacturers, setManufacturers]= useState([])
 
     const [formData, setFormData] = useState({
@@ -48,6 +50,7 @@ export default function VehicleForm() {
                 picture_url: '',
                 manufacturer_id: ''
             })
+            navigate("/vehicles")
         }
 
     }

@@ -1,6 +1,17 @@
+import { useState, useEffect } from "react"
 
-//maybe add spinner instead of ?
-export default function VehicleList(props){
+export default function VehicleList(){
+    const [vehicles, setVehicles] = useState([])
+
+    const loadVehicles = async() =>{
+        const response = await fetch('http://localhost:8100/api/models/')
+        if (response.ok){
+            const data = await response.json()
+            setVehicles(data.models)
+        }
+    }
+
+    useEffect(()=> {loadVehicles()},[])
 
     return (
         <table className="table table-striped">
@@ -12,12 +23,12 @@ export default function VehicleList(props){
                 </tr>
             </thead>
             <tbody>
-                {props.vehicles?.map(vehicle => {
+                {vehicles.map(vehicle => {
                     return (
                         <tr key={ vehicle.href }>
                             <td>{ vehicle.name }</td>
                             <td>{ vehicle.manufacturer.name }</td>
-                            <td><img src= { vehicle.picture_url } alt = { vehicle.picture_url } height = "200"/> </td>
+                            <td><img src= { vehicle.picture_url } alt = { vehicle.picture_url } height="300" width="450"/> </td>
                         </tr>
                     );
                 })}
