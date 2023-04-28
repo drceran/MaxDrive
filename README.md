@@ -577,293 +577,292 @@ microservice, here.
 Explain your models and integration with the inventory
 microservice, here.
 
+## Sales Microservice
 
-## Sale Microservice
+Two applications "Api" and "Poll" are contained in Sales microservice.
+
+Api is a Django application with a Django Project named "sales_project". This project consists a Django app named "sales_rest". sales_rest app handles list, create and delete functionality for salespeople (which are objects of SalesPerson models), customers (which are objects of Customer model) and sales (which are objects of Sale model) of specific automobiles (AutomobilesVO objects) in a dealership's inventory.
+
+Poll is an application for polling the Automobile data from the Inventory API every 60 seconds and creates or updates an AutomobileVO object within Sales database.
+
+We utilized React to render a dynamic single page application.
 
 ### RESTful Endpoints
 #### Salespeople
 | HTTP Method | URL | Description |
 |---|---|---|
-|`GET`| http://localhost:8100/api/manufacturers/ | List manufacturers |
-|`POST`| http://localhost:8100/api/manufacturers/ | Create a manufacturer |
-|`GET`| http://localhost:8100/api/manufacturers/:id/ | Get a specific manufacturer's detail |
-|`PUT`| http://localhost:8100/api/manufacturers/:id/ | Update a specific manufacturer |
-|`DELETE`| http://localhost:8100/api/manufacturers/:id/ | Delete a specific manufacturer |
+|`GET`| http://localhost:8090/api/salespeople/ | List salespeople |
+|`POST`| http://localhost:8090/api/salespeople/ | Create a salesperson |
+|`DELETE`| http://localhost:8090/api/salespeople/:id | Delete a specific salesperson |
+|`GET`| http://localhost:8090/api/salespeople/:id/sales | List saleshistory of a specific salesperson |
 
 <details>
-<summary><strong>Example GET Outputs</strong></summary>
+<summary><strong>Example GET Output</strong></summary>
 
-##### List manufacturers:
+##### List salespeople:
 ```
 {
-	"manufacturers": [
+	"salespersons": [
 		{
-			"href": "/api/manufacturers/1/",
-			"id": 1,
-			"name": "BMW"
-		}
+			"first_name": "Fran",
+			"last_name": "Healy",
+			"employee_id": "1234567",
+			"id": 1
+		},
 	]
 }
 ```
-##### Get a specific manufacturer's detail:
-```
-{
-	"href": "/api/manufacturers/1/",
-	"id": 1,
-	"name": "BMW"
-}
-```
+
 </details>
 
 <details>
-<summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+<summary><strong>Example POST Input and Output</strong></summary>
 
 ##### Input:
 ```
 {
-  "name": "BMW"
+	"first_name":"James",
+	"last_name":"Joyce",
+	"employee_id":1666404
 }
 ```
 
 ##### Output:
 ```
 {
-	"href": "/api/manufacturers/1/",
-	"id": 1,
-	"name": "BMW"
+	"first_name": "James",
+	"last_name": "Joyce",
+	"employee_id": 1666404,
+	"id": 18
 }
 ```
 </details>
 
 <details>
-<summary><strong>Example Delete Output</strong></summary>
+<summary><strong>Example DELETE Input and Output</strong></summary>
 
-##### Delete a specific manufacturer:
+##### Input:
 ```
 {
-	"id": null,
-	"name": "BMW"
+	"id":18
+}
+```
+
+##### Output:
+```
+{
+	"deleted": true
 }
 ```
 </details>
 
+-------------------------------------------------------------------------------------------
 #### Customers Models
 | HTTP Method | URL | Description |
 |---|---|---|
-|`GET`| http://localhost:8100/api/models/ | List vehicle models |
-|`POST`| http://localhost:8100/api/models/ | Get a vehicle model |
-|`GET`| http://localhost:8100/api/models/:id/ | Show a specific vehicle model's detail |
-|`PUT`| http://localhost:8100/api/models/:id/ | Update a specific vehicle model |
-|`DELETE`| http://localhost:8100/api/models/:id/ | Delete a specific vehicle model |
+|`GET`| http://localhost:8090/api/customers/ | List customers |
+|`POST`| http://localhost:8090/api/customers/ | Create a customer |
+|`DELETE`| http://localhost:8090/api/customers/:id | Delete a specific customer |
 
 <details>
-<summary><strong>Example GET Outputs</strong></summary>
+<summary><strong>Example GET Output</strong></summary>
 
-##### List vehicle models:
+##### List customers:
 ```
 {
-	"models": [
+	"customers": [
 		{
-			"href": "/api/models/8/",
-			"id": 8,
-			"name": "M5",
-			"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-			"manufacturer": {
-				"href": "/api/manufacturers/3/",
-				"id": 3,
-				"name": "BMW"
-			}
-		}
+			"first_name": "Zane",
+			"last_name": "Hudson",
+			"address": "4056 Los Gatos",
+			"phone_number": "3109377303",
+			"id": 5
+		},
 	]
 }
 ```
-##### Get a specific vehicle model's detail:
-```
-{
-	"href": "/api/models/8/",
-	"id": 1,
-	"name": "M5",
-	"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-	"manufacturer": {
-		"href": "/api/manufacturers/3/",
-		"id": 1,
-		"name": "BMW"
-	}
-}
-```
+
 </details>
 
 <details>
-<summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+<summary><strong>Example POST Input and Output</strong></summary>
 
 ##### Input:
 ```
 {
-  "name": "M5",
-  "picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-  "manufacturer_id": 1
+	"first_name":"Joanne",
+	"last_name":"Rowling" ,
+	"address": "444 Campbell Ave",
+	"phone_number": 3109377303
 }
 ```
 
 ##### Output:
 ```
 {
-	"href": "/api/models/1/",
-	"id": 1,
-	"name": "M5",
-	"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-	"manufacturer": {
-		"href": "/api/manufacturers/1/",
-		"id": 1,
-		"name": "BMW"
+	"customer": {
+		"first_name": "Joanne",
+		"last_name": "Rowling",
+		"address": "444 Campbell Ave",
+		"phone_number": 3109377303,
+		"id": 12
 	}
 }
 ```
 </details>
-<details>
-<summary><strong>Example Delete Output</strong></summary>
 
-##### Delete a specific vehicle model:
+<details>
+<summary><strong>Example DELETE Input and Output</strong></summary>
+
+##### Input:
 ```
 {
-	"id": null,
-	"name": "M5",
-	"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-	"manufacturer": {
-		"href": "/api/manufacturers/3/",
-		"id": 1,
-		"name": "BMW"
-	}
+	"id":12
+}
+```
+
+##### Output:
+```
+{
+	"deleted": true
 }
 ```
 </details>
 
+-------------------------------------------------------------------------------------------
 #### Sales Models
 | HTTP Method | URL | Description |
 |---|---|---|
-|`GET`| http://localhost:8100/api/automobiles/ | List automobiles |
-|`POST`| http://localhost:8100/api/automobiles/ | Create an automobile |
-|`GET`| http://localhost:8100/api/automobiles/:vin/ | Get a specific automobile's detail |
-|`PUT`| http://localhost:8100/api/automobiles/:vin/ | Update a specific automobile |
-|`DELETE`| http://localhost:8100/api/automobiles/:vin/ | Delete a specific automobile |
+|`GET`| http://localhost:8090/api/sales/ | List sales |
+|`POST`| http://localhost:8090/api/sales/ | Create a sale |
+|`DELETE`| http://localhost:8090/api/sales/:id | Delete a specific sale |
 
 <details>
-<summary><strong>Example GET Outputs</strong></summary>
+<summary><strong>Example GET Output</strong></summary>
 
-##### List automobiles:
+##### List sales:
 ```
 {
-	"autos": [
+	"sales": [
 		{
-			"href": "/api/automobiles/WBSFV9C5XDD096380/",
-			"id": 1,
-			"color": "Moonstone Metallic",
-			"year": 2013,
-			"vin": "WBSFV9C5XDD096380",
-			"model": {
-				"href": "/api/models/1/",
-				"id": 1,
-				"name": "M5",
-				"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-				"manufacturer": {
-					"href": "/api/manufacturers/1/",
-					"id": 1,
-					"name": "BMW"
-				}
+			"automobile": {
+				"vin": "12312312312312312",
+				"sold": false
 			},
-			"sold": false
-		}
+			"salesperson": {
+				"first_name": "Fran",
+				"last_name": "Healy",
+				"employee_id": "1234567",
+				"id": 1
+			},
+			"customer": {
+				"first_name": "Zane",
+				"last_name": "Hudson",
+				"address": "4056 Los Gatos",
+				"phone_number": "3109377303",
+				"id": 5
+			},
+			"price": 888,
+			"id": 4
+		},
 	]
 }
 ```
-##### Get a specific automobile's detail:
-```
-{
-	"href": "/api/automobiles/WBSFV9C5XDD096380/",
-	"id": 2,
-	"color": "Moonstone Metallic",
-	"year": 2013,
-	"vin": "WBSFV9C5XDD096380",
-	"model": {
-		"href": "/api/models/8/",
-		"id": 8,
-		"name": "M5",
-		"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-		"manufacturer": {
-			"href": "/api/manufacturers/3/",
-			"id": 3,
-			"name": "BMW"
-		}
-	},
-	"sold": false
-}
-```
+
 </details>
 
 <details>
-<summary><strong>Example POST / PUT Inputs and Outputs</strong></summary>
+<summary><strong>Example POST Input and Output</strong></summary>
 
 ##### Input:
 ```
 {
-  "color": "Moonstone Metallic",
-  "year": 2013,
-  "vin": "WBSFV9C5XDD096380",
-  "model_id": 1
+	"salesperson": 1,
+	"customer": 8,
+	"automobile": "12312312312312312",
+	"price": "888"
 }
 ```
 
 ##### Output:
 ```
 {
-	"href": "/api/automobiles/WBSFV9C5XDD096380/",
-	"id": 1,
-	"color": "Moonstone Metallic",
-	"year": 2013,
-	"vin": "WBSFV9C5XDD096380",
-	"model": {
-		"href": "/api/models/1/",
-		"id": 1,
-		"name": "M5",
-		"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-		"manufacturer": {
-			"href": "/api/manufacturers/1/",
-			"id": 1,
-			"name": "BMW"
-		}
-	},
-	"sold": false
+	"sale": {
+		"automobile": {
+			"vin": "12312312312312312",
+			"sold": false
+		},
+		"salesperson": {
+			"first_name": "Fran",
+			"last_name": "Healy",
+			"employee_id": "1234567",
+			"id": 1
+		},
+		"customer": {
+			"first_name": "Charlotte",
+			"last_name": "Mina",
+			"address": "40555 Stanford",
+			"phone_number": "3109377303",
+			"id": 8
+		},
+		"price": "888",
+		"id": 12
+	}
 }
 ```
 </details>
 
 <details>
-<summary><strong>Example Delete Output</strong></summary>
+<summary><strong>Example DELETE Input and Output</strong></summary>
 
-##### Delete a specific vehicle model:
+##### Input:
 ```
 {
-	"href": "/api/automobiles/WBSFV9C5XDD096380/",
-	"id": null,
-	"color": "Moonstone Metallic",
-	"year": 2013,
-	"vin": "WBSFV9C5XDD096380",
-	"model": {
-		"href": "/api/models/1/",
-		"id": 1,
-		"name": "M5",
-		"picture_url": "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F52c644c6-17c6-11ed-98b9-ae8775f5f43c.jpg?crop=4412%2C2482%2C1490%2C1396&resize=1500",
-		"manufacturer": {
-			"href": "/api/manufacturers/1/",
-			"id": 1,
-			"name": "BMW"
-		}
+	"id":12
+}
+```
+
+##### Output:
+```
+{
+	"automobile": {
+		"vin": "12312312312312312",
+		"sold": false
 	},
-	"sold": false
+	"salesperson": {
+		"first_name": "Fran",
+		"last_name": "Healy",
+		"employee_id": "1234567",
+		"id": 1
+	},
+	"customer": {
+		"first_name": "Charlotte",
+		"last_name": "Mina",
+		"address": "40555 Stanford",
+		"phone_number": "3109377303",
+		"id": 8
+	},
+	"price": 888,
+	"id": null
+}
+```
+
+##### Input:
+```
+With the id that has already been deleted:
+{
+	"id":12
+}
+```
+
+##### Output:
+```
+With the id that has already been deleted:
+{
+	"message": "Sale does not exist."
 }
 ```
 </details>
-
 
 ### RESTful Endpoints
 #### Salespersons
