@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import MainPage from './MainPage';
-import Nav from './Nav';
+import NavigationBar from './Nav';
 import VehicleList from './VehicleList';
 import VehicleForm from './VehicleForm';
 import ManufacturerList from './ManufacturerList';
@@ -24,17 +24,14 @@ import SalespersonHistory from './SalespersonHistory';
 function App(props) {
   return (
     <BrowserRouter>
-      <Nav />
+      <NavigationBar />
       <div className="container">
         <Routes>
-
           <Route path="/" element={<MainPage />} />
-
           <Route path="manufacturers">
             <Route index element={<ManufacturerList />} />
             <Route path="new" element={<ManufacturerCreate />} />
           </Route>
-
           <Route path="vehicles">
             <Route index element={<VehicleList vehicles={props.vehicles} />} />
             <Route path="new" element={<VehicleForm />} />
@@ -56,12 +53,10 @@ function App(props) {
             <Route index element={<SalespeopleList />} />
             <Route path="new" element={<SalespeopleCreate />} />
           </Route>
-
           <Route path="customers">
             <Route index element={<CustomerList />} />
             <Route path="new" element={<CustomerCreate />} />
           </Route>
-
           <Route path="sales">
             <Route index element={<SalesList />} />
             <Route path="new" element={<SaleCreate />} />
