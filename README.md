@@ -76,7 +76,7 @@ CarCar is a web application that is design to manage an automobile dealership. I
 ##### Sales:
 | Feature | URL |
 |---|---|
-|Technicians list|http://localhost:3000/sales/|
+|Sales list|http://localhost:3000/sales/|
 |Add a sale |http://localhost:3000/sales/new/|
 |Salesperson history|http://localhost:3000/sales/history/
 
@@ -800,7 +800,7 @@ We utilized React to render a dynamic single page application.
 |---|---|---|
 |`GET`| http://localhost:8090/api/sales/ | List sales |
 |`POST`| http://localhost:8090/api/sales/ | Create a sale |
-|`DELETE`| http://localhost:8090/api/sales/:id | Delete a specific sale |
+|`DELETE`| http://localhost:8090/api/sale/:id | Delete a specific sale |
 
 <details>
 
@@ -951,4 +951,4 @@ With the id that has already been deleted:
 |---|---|---|
 |`GET`| http://localhost:8090/api/sales/ | List sales |
 |`POST`| http://localhost:8090/api/sales/ | Create a sale |
-|`DELETE`| http://localhost:8090/api/sales/:id | Delete a sale |
+|`DELETE`| http://localhost:8090/api/sale/:id | Delete a sale |
