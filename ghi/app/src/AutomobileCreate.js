@@ -42,11 +42,10 @@ function AutomobileCreate() {
                 vin: '',
                 model_id: '',
             });
-            // event.target.reset();
             navigate("/automobiles")
         }
     }
-    const handleFormChange = (e) => { // e is an Event, contains e.target which is the React element that caused this event.
+    const handleFormChange = (e) => {
         const value = e.target.value;
         const inputName = e.target.name;
 

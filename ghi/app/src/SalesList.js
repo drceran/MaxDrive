@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 
 function SalesList({ }) {
     const [sales, setSales] = useState([]);
+    const [showDeletedAlert, setShowDeletedAlert] = useState(false)
+    const [deletedSaleId, setdeletedSaleId] = useState("")
 
 
     const fetchdata = async () => {
@@ -26,6 +29,9 @@ function SalesList({ }) {
         };
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
+            const deletedSale = sales.find(element => element.id === id);
+            setdeletedSaleId(deletedSale.id);
+            setShowDeletedAlert(true);
             fetchdata();
         }
     }
@@ -58,6 +64,12 @@ function SalesList({ }) {
                     })}
                 </tbody>
             </table>
+            <Alert show={showDeletedAlert} dismissible
+                onClose={() => setShowDeletedAlert(false)} variant="success">
+                <p>
+                   Sale with id number: {deletedSaleId} is successfully deleted!
+                </p>
+            </Alert>
         </div>
     );
 

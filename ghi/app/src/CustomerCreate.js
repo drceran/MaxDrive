@@ -22,7 +22,6 @@ function CustomerCreate() {
             setFormData({
 
             });
-            // event.target.reset();
             navigate("/customers")
         }
     }

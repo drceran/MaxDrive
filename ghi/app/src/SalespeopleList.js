@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 
 function SalespeopleList({ }) {
     const [salespersons, setSalespersons] = useState([]);
-
+    const [showDeletedAlert, setShowDeletedAlert] = useState(false)
+    const [deletedPersonName, setDeletedPersonName] = useState("")
 
     const fetchdata = async () => {
         const url = "http://localhost:8090/api/salespeople/";
@@ -14,30 +16,23 @@ function SalespeopleList({ }) {
         }
     }
 
-//butun requestlerin default metodu GET. get olmasaydi fetchconfig le belirtirdin
     useEffect(() => {
         fetchdata();
     }, []);
 
-    // const [state, setState] = useState ({salespersons: [], count : ""});
-
-    // const deleteSalesperson = (id) => {
-    //     const newSalespersons = state.salespersons.filter(salesperson => salesperson.id !== id)
-    //     const newCount = newSalespersons.length;
-    //     setState({salespersons: newSalespersons, count: newCount})
-    // }
-//fetchconfig is not a reserved name we chose it.
-
     const deleteSalesperson = async (id) => {
-        const url =`http://localhost:8090/api/salespeople/${id}`;
+        const url = `http://localhost:8090/api/salespeople/${id}`;
         const fetchConfig = {
-            method:"delete",
+            method: "delete",
             headers: {
                 'Content-Type': "application/json",
             },
         };
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
+            const deletedPerson = salespersons.find(element => element.id === id);
+            setDeletedPersonName(deletedPerson.first_name + " " + deletedPerson.last_name);
+            setShowDeletedAlert(true);
             fetchdata();
         }
     }
@@ -60,11 +55,18 @@ function SalespeopleList({ }) {
                                 <td>{salesperson.employee_id}</td>
                                 <td>{salesperson.first_name}</td>
                                 <td>{salesperson.last_name}</td>
-                                <td><button onClick={()=> deleteSalesperson(salesperson.id)} type="button" className="btn btn-outline-danger">Delete me! </button></td>
+                                <td><button onClick={() => deleteSalesperson(salesperson.id)} type="button" className="btn btn-outline-danger">Delete me! </button></td>
                             </tr>
                         );
                     })}</tbody>
             </table>
+
+            <Alert show={showDeletedAlert} dismissible
+                onClose={() => setShowDeletedAlert(false)} variant="success">
+                <p>
+                    {deletedPersonName} is successfully deleted!
+                </p>
+            </Alert>
         </div>
     );
 

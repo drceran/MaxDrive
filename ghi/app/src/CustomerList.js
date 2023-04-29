@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
 
 
 function CustomerList({ }) {
     const [customers, setCustomers] = useState([]);
-
+    const [showDeletedAlert, setShowDeletedAlert] = useState(false)
+    const [deletedCustomerName, setDeletedCustomerName] = useState("")
 
     const fetchdata = async () => {
         const url = "http://localhost:8090/api/customers/";
@@ -28,6 +30,9 @@ function CustomerList({ }) {
         };
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
+            const deletedCustomer = customers.find(element => element.id === id);
+            setDeletedCustomerName(deletedCustomer.first_name + " " + deletedCustomer.last_name);
+            setShowDeletedAlert(true);
             fetchdata();
         }
     }
@@ -58,6 +63,12 @@ function CustomerList({ }) {
                     })}
                 </tbody>
             </table>
+            <Alert show={showDeletedAlert} dismissible
+                onClose={() => setShowDeletedAlert(false)} variant="success">
+                <p>
+                    {deletedCustomerName} is successfully deleted!
+                </p>
+            </Alert>
         </div>
     )
 }
