@@ -93,7 +93,7 @@ function SaleCreate() {
                                 <option value="">Choose an automobile VIN...</option>
                                 {automobiles.map(automobile => {
                                     return (
-                                        <option key={automobile.id} value={automobile.vin}>{automobile.vin}</option>
+                                        <option key={"a"+automobile.id} value={automobile.vin}>{automobile.vin}</option>
                                     )
                                 })}
                             </select>
@@ -103,7 +103,7 @@ function SaleCreate() {
                                 <option value="">Choose a salesperson...</option>
                                 {salespersons.map(salesperson => {
                                     return (
-                                        <option key={salesperson.id} value={salesperson.id}>{salesperson.first_name} {salesperson.last_name}</option>
+                                        <option key={"s"+salesperson.id} value={salesperson.id}>{salesperson.first_name} {salesperson.last_name}</option>
                                     )
                                 })}
                             </select>
@@ -113,7 +113,7 @@ function SaleCreate() {
                                 <option value="">Choose a customer...</option>
                                 {customers.map(customer => {
                                     return (
-                                        <option key={customer.id} value={customer.id}>{customer.first_name} {customer.last_name}</option>
+                                        <option key={"c"+customer.id} value={customer.id}>{customer.first_name} {customer.last_name}</option>
                                     )
                                 })}
                             </select>
@@ -122,7 +122,7 @@ function SaleCreate() {
                             <input value={formData.price} onChange={handleFormChange} placeholder="price" required type="text" name="price" id="price" className='form-control' />
                             <label htmlFor="price">Price</label>
                         </div>
-                        <button className="btn btn-secondary">Create</button>
+                            <button className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>
