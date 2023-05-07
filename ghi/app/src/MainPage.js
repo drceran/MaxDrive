@@ -11,7 +11,7 @@ function MainPage() {
           alt=""
         />
         <Carousel.Caption>
-          <h1 id="title1">CarCar</h1>
+          <h1 id="title1">MaxDrive</h1>
           <p id="caption1">The premiere solution for automobile dealership management!</p>
         </Carousel.Caption>
       </Carousel.Item>

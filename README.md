@@ -1,12 +1,16 @@
-![CarCar picture](carcar_mainpage.png)
-# CarCar
+![MaxDrive picture](carcar_mainpage.png)
+![MaxDrive picture](maxdrive2.png)
+![MaxDrive picture](maxdrive3.png)
+![MaxDrive picture](maxdrive4.png)
+![MaxDrive picture](maxdrive5.png)
+# MaxDrive
 
-CarCar provides car dealerships with the ability to easily manage their inventory, service center, and sales!
+MaxDrive provides car dealerships with the ability to easily manage their inventory, service center, and sales!
 
 ## Team:
 
-* Person 1 - Jennifer Ho - Services
-* Person 2 - Esra Ceran - Sales
+* Person 1 - Esra Ceran - Sales
+* Person 2 - Jennifer Ho - Services
 
 ## Table of Contents
 - [Design](#design)
@@ -17,7 +21,7 @@ CarCar provides car dealerships with the ability to easily manage their inventor
 
 ## Design
 ### Domain-Driven Architecture
-CarCar is a web application that is design to manage an automobile dealership. It allows users to track their inventory, sales and car services. There are three amicroservices in this project: 1. inventory, 2.services, 3. sale. These microservices utilize RESTful API in the backend. In the user interface data is being displayed dynamically and allows users to interact with the application. Both sale and service microservices have their own AutomobileVO (Automobile value object) which is created and updated through their own poll application. In this way, sale and service microservices are able to request and get Automobile data from the Inventory microservice. A visual explanation of the project is presented in the below diagram.
+MaxDrive is a web application that is design to manage an automobile dealership. It allows users to track their inventory, sales and car services. There are three amicroservices in this project: 1. inventory, 2.services, 3. sale. These microservices utilize RESTful API in the backend. In the user interface data is being displayed dynamically and allows users to interact with the application. Both sale and service microservices have their own AutomobileVO (Automobile value object) which is created and updated through their own poll application. In this way, sale and service microservices are able to request and get Automobile data from the Inventory microservice. A visual explanation of the project is presented in the below diagram.
 
 ![Diagram for the project](diagram_carcar.png)
 
@@ -399,7 +403,7 @@ The Service microservice contains two applications "Api" and "Poll".
 
 Api includes most of the back-end functionality for the Service microservice. It contains three models: Technicians, Appointments, and AutomobileVO. This app enables various functionalities including adding/removing technicians, listing all technicians, making/deleting appointments, updating appointment statuses, and listing all appointments.
 
-Poll serves a role in polling Automobile data from the Inventory API every 60 seconds to create or update an AutomobileVO
+Poll serves a role in polling Automobile data from the Inventory API every 10000 ms to create or update an AutomobileVO
 
 ### RESTful Endpoints
 #### Technicians
@@ -585,7 +589,7 @@ Two applications "Api" and "Poll" are contained in Sales microservice.
 
 Api is a Django application with a Django Project named "sales_project". This project consists a Django app named "sales_rest". sales_rest app handles list, create and delete functionality for salespeople (which are objects of SalesPerson models), customers (which are objects of Customer model) and sales (which are objects of Sale model) of specific automobiles (AutomobilesVO objects) in a dealership's inventory.
 
-Poll is an application for polling the Automobile data from the Inventory API every 60 seconds and creates or updates an AutomobileVO object within Sales database.
+Poll is an application for polling the Automobile data from the Inventory API every 10000 ms and creates or updates an AutomobileVO object within Sales database.
 
 We utilized React to render a dynamic single page application.
 

@@ -1,0 +1,9 @@
+nav{
+    display:flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
