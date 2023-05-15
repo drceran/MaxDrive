@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 
-
 function SalespeopleList({ }) {
     const [salespersons, setSalespersons] = useState([]);
     const [showDeletedAlert, setShowDeletedAlert] = useState(false)
     const [deletedPersonName, setDeletedPersonName] = useState("")
 
-    const fetchdata = async () => {
+    const fetchData = async () => {
         const url = "http://localhost:8090/api/salespeople/";
         const response = await fetch(url);
         if (response.ok) {
@@ -17,7 +16,7 @@ function SalespeopleList({ }) {
     }
 
     useEffect(() => {
-        fetchdata();
+        fetchData();
     }, []);
 
     const deleteSalesperson = async (id) => {
@@ -33,7 +32,7 @@ function SalespeopleList({ }) {
             const deletedPerson = salespersons.find(element => element.id === id);
             setDeletedPersonName(deletedPerson.first_name + " " + deletedPerson.last_name);
             setShowDeletedAlert(true);
-            fetchdata();
+            fetchData();
         }
     }
 

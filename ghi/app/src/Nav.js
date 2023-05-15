@@ -1,8 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-
 import './navbar.css';
 
 function NavigationBar() {
@@ -54,10 +51,6 @@ function NavigationBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent"> </div>
-        <ButtonGroup>
-          <Button variant="light container-fluid d-flex" href="/login">Login</Button>
-        </ButtonGroup>
-        {/* <Nav.Link href='/login'>Login</Nav.Link> */}
       </div>
     </nav>
   )

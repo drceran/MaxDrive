@@ -48,6 +48,7 @@ MIDDLEWARE = [
 
 ALLOWED_HOSTS = [
     "localhost",
+    # we do not this one. this is gonna be useful after we deploy the project.
     "project-beta-sales-api-1",
 ]
 

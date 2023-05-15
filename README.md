@@ -21,7 +21,7 @@ MaxDrive provides car dealerships with the ability to easily manage their invent
 
 ## Design
 ### Domain-Driven Architecture
-MaxDrive is a web application that is design to manage an automobile dealership. It allows users to track their inventory, sales and car services. There are three amicroservices in this project: 1. inventory, 2.services, 3. sale. These microservices utilize RESTful API in the backend. In the user interface data is being displayed dynamically and allows users to interact with the application. Both sale and service microservices have their own AutomobileVO (Automobile value object) which is created and updated through their own poll application. In this way, sale and service microservices are able to request and get Automobile data from the Inventory microservice. A visual explanation of the project is presented in the below diagram.
+MaxDrive is a web application that is design to manage an automobile dealership. It allows users to track their inventory, sales and car services. There are three microservices in this project: 1. inventory, 2.services, 3. sale. These microservices utilize RESTful API in the backend. In the user interface data is being displayed dynamically and allows users to interact with the application. Both sale and service microservices have their own AutomobileVO (Automobile value object) which is created and updated through their own poll application. In this way, sale and service microservices are able to request and get Automobile data from the Inventory microservice. A visual explanation of the project is presented in the below diagram.
 
 ![Diagram for the project](diagram_carcar.png)
 

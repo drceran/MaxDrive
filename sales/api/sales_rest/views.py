@@ -131,6 +131,7 @@ def list_sale(request):
         except Sale.DoesNotExist:
             return JsonResponse({"message": "Invalid sale information"}, status=422)
 
+
 @require_http_methods(["DELETE"])
 def details_sale(request, id=None):
     if request.method == "DELETE":

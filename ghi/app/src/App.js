@@ -19,7 +19,7 @@ import SalespeopleCreate from './SalespeopleCreate';
 import CustomerCreate from './CustomerCreate';
 import SaleCreate from './SaleCreate';
 import SalespersonHistory from './SalespersonHistory';
-import Login from './Login';
+
 
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="login" element={<Login />} />
           <Route path="manufacturers">
             <Route index element={<ManufacturerList />} />
             <Route path="new" element={<ManufacturerCreate />} />

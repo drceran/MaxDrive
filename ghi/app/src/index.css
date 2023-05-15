@@ -18,6 +18,9 @@ code {
   color:white
 }
 
+/* There are two sales dropdown, one is in the main the other one is under it.
+To not mix them, main one names sales, subheading is names saless */
+
 #manufacturers-dropdown,
 #vehicles-dropdown,
 #autos-dropdown,

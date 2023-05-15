@@ -93,7 +93,7 @@ function SaleCreate() {
                                 <option value="">Choose an automobile VIN...</option>
                                 {automobiles.map(automobile => {
                                     return (
-                                        <option key={"a"+automobile.id} value={automobile.vin}>{automobile.vin}</option>
+                                        <option key={"a"+automobile.vin} value={automobile.vin}>{automobile.vin}</option>
                                     )
                                 })}
                             </select>
